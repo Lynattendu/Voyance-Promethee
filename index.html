@@ -384,7 +384,189 @@
 <script>
 
 function ouvrirTirage(nombreCartes) {
+const infosCartes = {
 
+  "V-01": {
+    motCle: "Orientation",
+    famille: "Mouvements",
+    texte: "Une direction se dessine. Cette carte invite à choisir un cap ou à retrouver celui qui te convient vraiment."
+  },
+
+  "V-02": {
+    motCle: "Énergie",
+    famille: "Mouvements",
+    texte: "Une impulsion arrive et peut accélérer la situation. Quelque chose se met en mouvement rapidement."
+  },
+
+  "V-03": {
+    motCle: "Inspiration",
+    famille: "Forces",
+    texte: "Une idée, une envie ou une vision nouvelle peut devenir une véritable force pour avancer."
+  },
+
+  "V-04": {
+    motCle: "Attachement",
+    famille: "Liens",
+    texte: "Un lien important influence la situation. Il peut unir, retenir ou rappeler ce qui compte vraiment."
+  },
+
+  "V-05": {
+    motCle: "Passage",
+    famille: "Mouvements",
+    texte: "Une transition est en cours. Quelque chose peut être laissé derrière pour entrer dans une nouvelle étape."
+  },
+
+  "V-06": {
+    motCle: "Bouleversement",
+    famille: "Mouvements",
+    texte: "Un changement puissant peut modifier rapidement l’équilibre actuel et ouvrir une direction inattendue."
+  },
+
+  "V-07": {
+    motCle: "Hésitation",
+    famille: "Ombres",
+    texte: "La situation manque de clarté et plusieurs directions peuvent compliquer ou ralentir la décision."
+  },
+
+  "V-08": {
+    motCle: "Amitié",
+    famille: "Liens",
+    texte: "Un lien sincère, une présence amicale ou un soutien proche peut jouer un rôle important."
+  },
+
+  "V-09": {
+    motCle: "Révélation",
+    famille: "Signes",
+    texte: "Une information ou une vérité peut apparaître et éclairer ce qui était jusque-là difficile à comprendre."
+  },
+
+  "V-10": {
+    motCle: "Mouvement",
+    famille: "Forces",
+    texte: "Une énergie dynamique pousse la situation à évoluer. L’immobilité n’est plus vraiment possible."
+  },
+
+  "V-11": {
+    motCle: "Soutien",
+    famille: "Liens",
+    texte: "Une personne, un lien ou une présence fiable peut apporter protection, aide ou stabilité."
+  },
+
+  "V-12": {
+    motCle: "Synchronicité",
+    famille: "Signes",
+    texte: "Une coïncidence ou un détail inattendu peut avoir du sens et orienter subtilement la suite."
+  },
+
+  "V-13": {
+    motCle: "Mystère",
+    famille: "Forces",
+    texte: "Tout n’a pas besoin d’être compris immédiatement. Une part d’inconnu peut contenir un potentiel encore caché."
+  },
+
+  "V-14": {
+    motCle: "Clarté",
+    famille: "Signes",
+    texte: "Un signe ou une compréhension nouvelle permet de voir la situation avec davantage de précision."
+  },
+
+  "V-15": {
+    motCle: "Rétrospection",
+    famille: "Mouvements",
+    texte: "Un retour sur le passé peut être nécessaire pour comprendre ce qui doit maintenant évoluer."
+  },
+
+  "V-16": {
+    motCle: "Pressentiment",
+    famille: "Signes",
+    texte: "Ton intuition capte quelque chose avant que les faits soient complètement visibles."
+  },
+
+  "V-17": {
+    motCle: "Confirmation",
+    famille: "Signes",
+    texte: "Un événement, une parole ou un détail vient confirmer une impression déjà présente."
+  },
+
+  "V-18": {
+    motCle: "Élévation",
+    famille: "Mouvements",
+    texte: "La situation peut progresser vers un niveau supérieur, à condition d’accepter l’effort ou l’évolution nécessaire."
+  },
+
+  "V-19": {
+    motCle: "Rapprochement",
+    famille: "Liens",
+    texte: "Une distance peut diminuer et un lien peut se reconstruire, se renforcer ou devenir plus fluide."
+  },
+
+  "V-20": {
+    motCle: "Amour",
+    famille: "Liens",
+    texte: "Les sentiments, l’affection ou un lien émotionnel fort occupent une place centrale dans la situation."
+  },
+
+  "V-21": {
+    motCle: "Changement",
+    famille: "Mouvements",
+    texte: "Une évolution arrive. Il peut être plus utile d’accompagner le mouvement que de chercher à le retenir."
+  },
+
+  "V-22": {
+    motCle: "Message",
+    famille: "Signes",
+    texte: "Une parole, une information ou un détail peut contenir une indication importante pour la suite."
+  },
+
+  "V-23": {
+    motCle: "Indice",
+    famille: "Signes",
+    texte: "Plusieurs petits éléments commencent à former un ensemble cohérent. Observe ce qui se répète."
+  },
+
+  "V-24": {
+    motCle: "Charge",
+    famille: "Ombres",
+    texte: "Une responsabilité, une pression ou un poids devient trop présent et mérite d’être regardé autrement."
+  },
+
+  "V-25": {
+    motCle: "Connexion",
+    famille: "Liens",
+    texte: "Un lien subtil unit des personnes, des événements ou des intentions et peut devenir plus important qu’il n’y paraît."
+  },
+
+  "V-26": {
+    motCle: "Réciprocité",
+    famille: "Liens",
+    texte: "Les sentiments, les efforts ou les intentions peuvent être partagés et circuler dans les deux sens."
+  },
+
+  "V-27": {
+    motCle: "Incertitude",
+    famille: "Ombres",
+    texte: "Une partie de la situation reste cachée ou difficile à lire. Mieux vaut éviter les conclusions trop rapides."
+  },
+
+  "V-28": {
+    motCle: "Harmonie",
+    famille: "Liens",
+    texte: "L’entente, l’équilibre et la compréhension mutuelle peuvent favoriser une évolution plus douce."
+  },
+
+  "V-29": {
+    motCle: "Révélation",
+    famille: "Ombres",
+    texte: "Une vérité cachée, un mécanisme ou une connexion complexe peut progressivement apparaître."
+  },
+
+  "V-30": {
+    motCle: "Renouveau",
+    famille: "Forces",
+    texte: "Une nouvelle énergie permet de repartir, de se régénérer ou d’aborder la situation autrement."
+  }
+
+};
   const accueil = document.querySelector(".accueil");
   const zoneTirage = document.getElementById("zoneTirage");
   const titre = document.getElementById("titreTirage");
@@ -667,6 +849,15 @@ role.style.textShadow =
   "0 0 8px rgba(130, 190, 255, 0.35)";
 
 container.appendChild(role);
+  const interpretation = document.createElement("div");
+
+interpretation.style.display = "none";
+interpretation.style.marginTop = "8px";
+interpretation.style.width = "140px";
+interpretation.style.textAlign = "center";
+interpretation.style.lineHeight = "1.35";
+
+container.appendChild(interpretation);
     zoneCartes.appendChild(container);
 
 
@@ -690,7 +881,28 @@ container.appendChild(role);
 
         flip.style.webkitTransform =
           "rotateY(180deg)";
+const nomFichier =
+  imageCarte.split("/").pop().replace(".PNG", "");
 
+const info = infosCartes[nomFichier];
+
+if (info) {
+
+  interpretation.innerHTML =
+    '<div style="font-size:16px;font-weight:bold;color:white;">' +
+    info.motCle +
+    '</div>' +
+
+    '<div style="font-size:13px;margin-top:3px;color:rgba(165,220,255,0.9);">' +
+    'Famille : ' + info.famille +
+    '</div>' +
+
+    '<div style="font-size:13px;margin-top:7px;color:rgba(230,235,255,0.85);">' +
+    info.texte +
+    '</div>';
+
+  interpretation.style.display = "block";
+}
         retournee = true;
 
       }
