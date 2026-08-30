@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Voyance Prométhée</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+
+      background:
+        radial-gradient(circle at top, #4b2a7a 0%, #19122f 45%, #070812 100%);
+
+      color: white;
+      text-align: center;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .accueil {
+      width: 90%;
+      max-width: 600px;
+      padding: 30px 20px;
+    }
+
+    h1 {
+      font-size: 38px;
+      margin-bottom: 8px;
+      text-shadow:
+        0 0 10px #b891ff,
+        0 0 25px #6d3cff;
+    }
+
+    .sous-titre {
+      font-size: 18px;
+      opacity: 0.85;
+      margin-bottom: 35px;
+    }
+
+    .bouton-tirage {
+      width: 100%;
+      margin: 14px 0;
+      padding: 20px;
+
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(114,74,190,0.65),
+          rgba(34,24,75,0.80)
+        );
+
+      color: white;
+      cursor: pointer;
+
+      box-shadow:
+        0 0 14px rgba(126,87,255,0.25);
+
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .bouton-tirage:hover {
+      transform: scale(1.03);
+
+      box-shadow:
+        0 0 22px rgba(151,112,255,0.55);
+    }
+
+    .nom-tirage {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .description {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="accueil">
+
+    <h1>🔮 VOYANCE PROMÉTHÉE</h1>
+
+    <div class="sous-titre">
+      Choisis ton tirage
+    </div>
+
+
+    <button class="bouton-tirage">
+      <div class="nom-tirage">
+        ⚡ TIRAGE ÉCLAIR
+      </div>
+
+      <div class="description">
+        1 carte — Une réponse immédiate
+      </div>
+    </button>
+
+
+    <button class="bouton-tirage">
+      <div class="nom-tirage">
+        ✨ TIRAGE CLAIR
+      </div>
+
+      <div class="description">
+        3 cartes — Comprendre la situation
+      </div>
+    </button>
+
+
+    <button class="bouton-tirage">
+      <div class="nom-tirage">
+        🌙 TIRAGE PROFOND
+      </div>
+
+      <div class="description">
+        5 cartes — Explorer ce qui agit autour de toi
+      </div>
+    </button>
+
+
+    <button class="bouton-tirage">
+      <div class="nom-tirage">
+        🌌 GRAND TIRAGE
+      </div>
+
+      <div class="description">
+        7 cartes — Une lecture complète
+      </div>
+    </button>
+
+  </div>
+
+</body>
+</html>
