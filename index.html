@@ -367,7 +367,7 @@
 
   <button onclick="retourAccueil()"
           style="
-            margin-top:35px;
+            margin-top:50px;
             padding:14px 24px;
             border:none;
             border-radius:16px;
@@ -812,7 +812,8 @@ cartesChoisies.forEach(function(imageCarte, index) {
       document.createElement("div");
 
   container.style.width = "140px";
-container.style.height = "285px";
+container.style.minHeight = "285px";
+container.style.height = "auto";
 
 container.style.position = "relative";
 container.style.perspective = "1000px";
@@ -982,7 +983,9 @@ interpretation.style.marginTop = "3px";
 interpretation.style.width = "140px";
 interpretation.style.textAlign = "center";
 interpretation.style.lineHeight = "1.35";
-
+interpretation.style.position = "relative";
+interpretation.style.zIndex = "1";
+interpretation.style.paddingBottom = "10px";
 container.appendChild(interpretation);
     zoneCartes.appendChild(container);
 
