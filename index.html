@@ -355,13 +355,15 @@
   <div id="descriptionTirage" style="margin-bottom:30px; color:rgba(230,235,255,0.85);"></div>
 
   <div id="cartesTirage"
-       style="
-         display:flex;
-         flex-wrap:wrap;
-         justify-content:center;
-         gap:18px;
-       ">
-  </div>
+     style="
+       display:flex;
+       flex-wrap:wrap;
+       justify-content:center;
+       align-items:flex-start;
+       column-gap:18px;
+       row-gap:28px;
+     ">
+</div>
 
   <button onclick="retourAccueil()"
           style="
@@ -501,15 +503,19 @@ cartesChoisies.forEach(function(imageCarte, index) {
     const container =
       document.createElement("div");
 
-    container.style.width = "140px";
-    container.style.minHeight = "250px";
+   container.style.width = "140px";
+container.style.minHeight = "285px";
 
-    container.style.position = "relative";
+container.style.position = "relative";
+container.style.perspective = "1000px";
 
-    container.style.perspective = "1000px";
+container.style.flex = "0 0 140px";
 
-    container.style.flex =
-      "0 0 140px";
+container.style.display = "flex";
+container.style.flexDirection = "column";
+container.style.alignItems = "center";
+
+container.style.marginBottom = "12px";
 
 
     // CARTE QUI TOURNE
@@ -637,12 +643,25 @@ const role = document.createElement("div");
 
 role.textContent = roles[index];
 
-role.style.marginTop = "12px";
-role.style.fontSize = "15px";
+role.style.marginTop = "14px";
+
+role.style.width = "140px";
+role.style.minHeight = "48px";
+
+role.style.fontSize = "14px";
 role.style.fontWeight = "bold";
-role.style.color = "rgba(230, 235, 255, 0.92)";
+
+role.style.color =
+  "rgba(230, 235, 255, 0.92)";
+
 role.style.textAlign = "center";
-role.style.lineHeight = "1.3";
+role.style.lineHeight = "1.35";
+
+role.style.display = "flex";
+role.style.alignItems = "flex-start";
+role.style.justifyContent = "center";
+
+role.style.padding = "0 4px";
 role.style.textShadow =
   "0 0 8px rgba(130, 190, 255, 0.35)";
 
