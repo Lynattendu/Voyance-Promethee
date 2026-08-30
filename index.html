@@ -565,7 +565,7 @@ const infosCartes = {
     famille: "Forces",
     texte: "Une nouvelle énergie permet de repartir, de se régénérer ou d’aborder la situation autrement."
   },
-  ,
+  
 
 "V-31": {
   motCle: "Transition",
@@ -1068,7 +1068,7 @@ container.appendChild(interpretation);
         flip.style.webkitTransform =
           "rotateY(180deg)";
 const nomFichier =
-  imageCarte.split("/").pop().replace(".PNG", "");
+  imageCarte.split("/").pop().replace(/\.[^/.]+$/, "");
 
 const info = infosCartes[nomFichier];
 
