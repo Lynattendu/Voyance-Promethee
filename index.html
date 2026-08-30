@@ -416,7 +416,10 @@ function ouvrirTirage(nombreCartes) {
   }
 
 
-  // Création du paquet V-01 à V-60
+  // =========================
+  // CRÉATION DU PAQUET
+  // =========================
+
   const paquet = [];
 
   for (let i = 1; i <= 60; i++) {
@@ -429,150 +432,217 @@ function ouvrirTirage(nombreCartes) {
   }
 
 
-  // Mélange du paquet
+  // =========================
+  // MÉLANGE
+  // =========================
+
   for (let i = paquet.length - 1; i > 0; i--) {
 
     const j = Math.floor(Math.random() * (i + 1));
 
     const temporaire = paquet[i];
+
     paquet[i] = paquet[j];
     paquet[j] = temporaire;
   }
 
 
-  // On prend uniquement le nombre de cartes nécessaire
-  const cartesChoisies = paquet.slice(0, nombreCartes);
+  // On prend le nombre de cartes nécessaire
 
+  const cartesChoisies =
+    paquet.slice(0, nombreCartes);
+
+
+  // =========================
+  // CRÉATION DES CARTES
+  // =========================
 
   cartesChoisies.forEach(function(imageCarte) {
 
-   const container = document.createElement("div");
 
-container.style.width = "140px";
-container.style.height = "210px";
-container.style.perspective = "1000px";
-container.style.position = "relative";
+    // CONTENEUR
 
+    const container =
+      document.createElement("div");
 
-const flip = document.createElement("div");
+    container.style.width = "140px";
+    container.style.height = "210px";
 
-flip.style.width = "100%";
-flip.style.height = "100%";
+    container.style.position = "relative";
 
-flip.style.position = "relative";
+    container.style.perspective = "1000px";
 
-flip.style.transformStyle = "preserve-3d";
-flip.style.transition = "transform 0.7s ease";
-
-flip.style.transformOrigin = "center center";
-
-flip.style.cursor = "pointer";
+    container.style.flex =
+      "0 0 140px";
 
 
-const dos = document.createElement("img");
+    // CARTE QUI TOURNE
 
-dos.src = "images/V-Dos.PNG";
+    const flip =
+      document.createElement("div");
 
-dos.style.position = "absolute";
+    flip.style.position = "relative";
 
-dos.style.top = "0";
-dos.style.left = "0";
+    flip.style.width = "100%";
+    flip.style.height = "100%";
 
-dos.style.width = "100%";
-dos.style.height = "100%";
+    flip.style.transformStyle =
+      "preserve-3d";
 
-dos.style.objectFit = "cover";
+    flip.style.webkitTransformStyle =
+      "preserve-3d";
 
-dos.style.borderRadius = "14px";
+    flip.style.transform =
+      "rotateY(0deg)";
 
-dos.style.backfaceVisibility = "hidden";
-dos.style.webkitBackfaceVisibility = "hidden";
+    flip.style.webkitTransform =
+      "rotateY(0deg)";
 
-dos.style.transform = "rotateY(0deg)";
+    flip.style.transformOrigin =
+      "50% 50%";
 
-dos.style.boxShadow =
-  "0 0 20px rgba(120,180,255,0.28)";
+    flip.style.transition =
+      "transform 0.7s ease";
 
+    flip.style.webkitTransition =
+      "-webkit-transform 0.7s ease";
 
-const recto = document.createElement("img");
-
-recto.src = imageCarte;
-
-recto.style.position = "absolute";
-
-recto.style.top = "0";
-recto.style.left = "0";
-
-recto.style.width = "100%";
-recto.style.height = "100%";
-
-recto.style.objectFit = "cover";
-
-recto.style.borderRadius = "14px";
-
-recto.style.transform = "rotateY(180deg)";
-
-recto.style.backfaceVisibility = "hidden";
-recto.style.webkitBackfaceVisibility = "hidden";
-
-recto.style.boxShadow =
-  "0 0 24px rgba(150,110,255,0.38)";
+    flip.style.cursor = "pointer";
 
 
-flip.appendChild(dos);
-flip.appendChild(recto);
+    // =========================
+    // DOS
+    // =========================
 
-container.appendChild(flip);
-zoneCartes.appendChild(container);
+    const dos =
+      document.createElement("img");
+
+    dos.src = "images/V-Dos.PNG";
+
+    dos.style.position = "absolute";
+
+    dos.style.top = "0";
+    dos.style.left = "0";
+    dos.style.right = "0";
+    dos.style.bottom = "0";
+
+    dos.style.width = "100%";
+    dos.style.height = "100%";
+
+    dos.style.objectFit = "cover";
+
+    dos.style.borderRadius = "14px";
+
+    dos.style.backfaceVisibility =
+      "hidden";
+
+    dos.style.webkitBackfaceVisibility =
+      "hidden";
+
+    dos.style.transform =
+      "rotateY(0deg)";
+
+    dos.style.webkitTransform =
+      "rotateY(0deg)";
+
+    dos.style.boxShadow =
+      "0 0 20px rgba(120,180,255,0.28)";
 
 
-let retournee = false;
+    // =========================
+    // RECTO
+    // =========================
+
+    const recto =
+      document.createElement("img");
+
+    recto.src = imageCarte;
+
+    recto.style.position = "absolute";
+
+    recto.style.top = "0";
+    recto.style.left = "0";
+    recto.style.right = "0";
+    recto.style.bottom = "0";
+
+    recto.style.width = "100%";
+    recto.style.height = "100%";
+
+    recto.style.objectFit = "cover";
+
+    recto.style.borderRadius = "14px";
+
+    recto.style.backfaceVisibility =
+      "hidden";
+
+    recto.style.webkitBackfaceVisibility =
+      "hidden";
+
+    recto.style.transform =
+      "rotateY(180deg)";
+
+    recto.style.webkitTransform =
+      "rotateY(180deg)";
+
+    recto.style.boxShadow =
+      "0 0 24px rgba(150,110,255,0.38)";
 
 
-flip.addEventListener("click", function() {
-
-  if (retournee) {
-    return;
-  }
-
-  flip.style.transform = "rotateY(180deg)";
-
-  retournee = true;
-
-});
-
+    // =========================
+    // ASSEMBLAGE
+    // =========================
 
     flip.appendChild(dos);
+
     flip.appendChild(recto);
 
     container.appendChild(flip);
+
     zoneCartes.appendChild(container);
 
+
+    // =========================
+    // RETOURNEMENT
+    // =========================
 
     let retournee = false;
 
 
-    flip.addEventListener("click", function() {
+    flip.addEventListener(
+      "click",
+      function() {
 
-      if (retournee) {
-        return;
+        if (retournee) {
+          return;
+        }
+
+        flip.style.transform =
+          "rotateY(180deg)";
+
+        flip.style.webkitTransform =
+          "rotateY(180deg)";
+
+        retournee = true;
+
       }
-
-      flip.style.transform = "rotateY(180deg)";
-      retournee = true;
-
-    });
+    );
 
   });
 
 }
 
 
+// =========================
+// RETOUR ACCUEIL
+// =========================
+
 function retourAccueil() {
 
-  document.querySelector(".accueil").style.display = "block";
+  document.querySelector(".accueil")
+    .style.display = "block";
 
-  document.getElementById("zoneTirage").style.display = "none";
+  document.getElementById("zoneTirage")
+    .style.display = "none";
 
 }
 
