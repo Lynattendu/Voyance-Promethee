@@ -451,13 +451,49 @@ function ouvrirTirage(nombreCartes) {
 
   const cartesChoisies =
     paquet.slice(0, nombreCartes);
+let roles = [];
 
+if (nombreCartes === 1) {
+  roles = [
+    "Réponse / énergie principale"
+  ];
+}
+
+if (nombreCartes === 3) {
+  roles = [
+    "Situation actuelle",
+    "Influence ou obstacle",
+    "Évolution"
+  ];
+}
+
+if (nombreCartes === 5) {
+  roles = [
+    "Situation actuelle",
+    "Ce qui agit en ta faveur",
+    "Ombre ou blocage",
+    "Mouvement à venir",
+    "Direction ou conseil"
+  ];
+}
+
+if (nombreCartes === 7) {
+  roles = [
+    "Passé récent",
+    "Présent",
+    "Influence cachée",
+    "Obstacle principal",
+    "Ce qui évolue",
+    "Conseil",
+    "Issue probable"
+  ];
+}
 
   // =========================
   // CRÉATION DES CARTES
   // =========================
 
-  cartesChoisies.forEach(function(imageCarte) {
+cartesChoisies.forEach(function(imageCarte, index) {
 
 
     // CONTENEUR
@@ -466,7 +502,7 @@ function ouvrirTirage(nombreCartes) {
       document.createElement("div");
 
     container.style.width = "140px";
-    container.style.height = "210px";
+    container.style.minHeight = "250px";
 
     container.style.position = "relative";
 
@@ -597,7 +633,20 @@ function ouvrirTirage(nombreCartes) {
     flip.appendChild(recto);
 
     container.appendChild(flip);
+const role = document.createElement("div");
 
+role.textContent = roles[index];
+
+role.style.marginTop = "12px";
+role.style.fontSize = "15px";
+role.style.fontWeight = "bold";
+role.style.color = "rgba(230, 235, 255, 0.92)";
+role.style.textAlign = "center";
+role.style.lineHeight = "1.3";
+role.style.textShadow =
+  "0 0 8px rgba(130, 190, 255, 0.35)";
+
+container.appendChild(role);
     zoneCartes.appendChild(container);
 
 
