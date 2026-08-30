@@ -503,8 +503,8 @@ cartesChoisies.forEach(function(imageCarte, index) {
     const container =
       document.createElement("div");
 
-   container.style.width = "140px";
-container.style.minHeight = "285px";
+  container.style.width = "140px";
+container.style.height = "285px";
 
 container.style.position = "relative";
 container.style.perspective = "1000px";
@@ -525,8 +525,9 @@ container.style.marginBottom = "12px";
 
     flip.style.position = "relative";
 
-    flip.style.width = "100%";
-    flip.style.height = "100%";
+    flip.style.width = "140px";
+flip.style.height = "210px";
+flip.style.flexShrink = "0";
 
     flip.style.transformStyle =
       "preserve-3d";
