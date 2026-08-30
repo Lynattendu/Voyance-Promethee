@@ -978,7 +978,7 @@ container.appendChild(role);
   const interpretation = document.createElement("div");
 
 interpretation.style.display = "none";
-interpretation.style.marginTop = "8px";
+interpretation.style.marginTop = "3px";
 interpretation.style.width = "140px";
 interpretation.style.textAlign = "center";
 interpretation.style.lineHeight = "1.35";
@@ -1014,18 +1014,10 @@ const info = infosCartes[nomFichier];
 
 if (info) {
 
-  interpretation.innerHTML =
-    '<div style="font-size:16px;font-weight:bold;color:white;">' +
-    info.motCle +
-    '</div>' +
-
-    '<div style="font-size:13px;margin-top:3px;color:rgba(165,220,255,0.9);">' +
-    'Famille : ' + info.famille +
-    '</div>' +
-
-    '<div style="font-size:13px;margin-top:7px;color:rgba(230,235,255,0.85);">' +
-    info.texte +
-    '</div>';
+interpretation.innerHTML =
+  '<div style="font-size:14px;color:rgba(230,235,255,0.90);line-height:1.4;">' +
+  info.texte +
+  '</div>';
 
   interpretation.style.display = "block";
 }
