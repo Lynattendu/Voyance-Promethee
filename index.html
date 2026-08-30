@@ -364,7 +364,20 @@
        row-gap:28px;
      ">
 </div>
-
+<button onclick="nouveauTirage()"
+        style="
+          margin-top:35px;
+          margin-right:10px;
+          padding:14px 24px;
+          border:none;
+          border-radius:16px;
+          background:rgba(86,160,220,0.55);
+          color:white;
+          font-size:16px;
+          cursor:pointer;
+        ">
+  🔄 Nouveau tirage
+</button>
   <button onclick="retourAccueil()"
           style="
             margin-top:50px;
@@ -382,8 +395,10 @@
 </div>
 
 <script>
-
+let dernierNombreCartes = 1;
 function ouvrirTirage(nombreCartes) {
+
+  dernierNombreCartes = nombreCartes;
 const infosCartes = {
 
   "V-01": {
@@ -1033,7 +1048,11 @@ interpretation.innerHTML =
 
 }
 
+function nouveauTirage() {
 
+  ouvrirTirage(dernierNombreCartes);
+
+}
 // =========================
 // RETOUR ACCUEIL
 // =========================
