@@ -303,50 +303,150 @@
     </div>
 
 
-    <button class="bouton-tirage">
-      <div class="nom-tirage">
-        ⚡ TIRAGE ÉCLAIR
-      </div>
+    <button class="bouton-tirage" onclick="ouvrirTirage(1)">
+  <div class="nom-tirage">
+    ⚡ TIRAGE ÉCLAIR
+  </div>
 
-      <div class="description">
-        1 carte — Une réponse immédiate
-      </div>
-    </button>
-
-
-    <button class="bouton-tirage">
-      <div class="nom-tirage">
-        ✨ TIRAGE CLAIR
-      </div>
-
-      <div class="description">
-        3 cartes — Comprendre la situation
-      </div>
-    </button>
+  <div class="description">
+    1 carte — Une réponse immédiate
+  </div>
+</button>
 
 
-    <button class="bouton-tirage">
-      <div class="nom-tirage">
-        🌙 TIRAGE PROFOND
-      </div>
+<button class="bouton-tirage" onclick="ouvrirTirage(3)">
+  <div class="nom-tirage">
+    ✨ TIRAGE CLAIR
+  </div>
 
-      <div class="description">
-        5 cartes — Explorer ce qui agit autour de toi
-      </div>
-    </button>
+  <div class="description">
+    3 cartes — Comprendre la situation
+  </div>
+</button>
 
 
-    <button class="bouton-tirage">
-      <div class="nom-tirage">
-        🌌 GRAND TIRAGE
-      </div>
+<button class="bouton-tirage" onclick="ouvrirTirage(5)">
+  <div class="nom-tirage">
+    🌙 TIRAGE PROFOND
+  </div>
 
-      <div class="description">
-        7 cartes — Une lecture complète
-      </div>
-    </button>
+  <div class="description">
+    5 cartes — Explorer ce qui agit autour de toi
+  </div>
+</button>
+
+
+<button class="bouton-tirage" onclick="ouvrirTirage(7)">
+  <div class="nom-tirage">
+    🌌 GRAND TIRAGE
+  </div>
+
+  <div class="description">
+    7 cartes — Une lecture complète
+  </div>
+</button>
 
   </div>
 
+<div id="zoneTirage" style="display:none; width:92%; max-width:1100px; margin:auto; padding:30px 20px; text-align:center;">
+
+  <h2 id="titreTirage"></h2>
+
+  <div id="descriptionTirage" style="margin-bottom:30px; color:rgba(230,235,255,0.85);"></div>
+
+  <div id="cartesTirage"
+       style="
+         display:flex;
+         flex-wrap:wrap;
+         justify-content:center;
+         gap:18px;
+       ">
+  </div>
+
+  <button onclick="retourAccueil()"
+          style="
+            margin-top:35px;
+            padding:14px 24px;
+            border:none;
+            border-radius:16px;
+            background:rgba(116,82,210,0.55);
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+          ">
+    ← Retour
+  </button>
+
+</div>
+
+<script>
+
+function ouvrirTirage(nombreCartes) {
+
+  const accueil = document.querySelector(".accueil");
+  const zoneTirage = document.getElementById("zoneTirage");
+  const titre = document.getElementById("titreTirage");
+  const description = document.getElementById("descriptionTirage");
+  const zoneCartes = document.getElementById("cartesTirage");
+
+  accueil.style.display = "none";
+  zoneTirage.style.display = "block";
+
+  zoneCartes.innerHTML = "";
+
+
+  if (nombreCartes === 1) {
+    titre.textContent = "⚡ Tirage Éclair";
+    description.textContent = "Choisis une carte.";
+  }
+
+  if (nombreCartes === 3) {
+    titre.textContent = "✨ Tirage Clair";
+    description.textContent = "Choisis 3 cartes.";
+  }
+
+  if (nombreCartes === 5) {
+    titre.textContent = "🌙 Tirage Profond";
+    description.textContent = "Choisis 5 cartes.";
+  }
+
+  if (nombreCartes === 7) {
+    titre.textContent = "🌌 Grand Tirage";
+    description.textContent = "Choisis 7 cartes.";
+  }
+
+
+  for (let i = 0; i < nombreCartes; i++) {
+
+    const carte = document.createElement("img");
+
+    carte.src = "images/V-Dos.PNG";
+
+    carte.style.width = "140px";
+    carte.style.height = "auto";
+    carte.style.borderRadius = "14px";
+    carte.style.cursor = "pointer";
+
+    carte.style.boxShadow =
+      "0 0 20px rgba(120,180,255,0.25)";
+
+    zoneCartes.appendChild(carte);
+  }
+
+}
+
+
+function retourAccueil() {
+
+  document.querySelector(".accueil").style.display = "block";
+  document.getElementById("zoneTirage").style.display = "none";
+
+}
+
+</script>
+
+
+
+  
 </body>
 </html>
