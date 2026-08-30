@@ -387,363 +387,303 @@ function ouvrirTirage(nombreCartes) {
 const infosCartes = {
 
   "V-01": {
-    motCle: "Orientation",
-    famille: "Mouvements",
+    
     texte: "Une direction se dessine. Cette carte invite à choisir un cap ou à retrouver celui qui te convient vraiment."
   },
 
   "V-02": {
-    motCle: "Énergie",
-    famille: "Mouvements",
+    
     texte: "Une impulsion arrive et peut accélérer la situation. Quelque chose se met en mouvement rapidement."
   },
 
   "V-03": {
-    motCle: "Inspiration",
-    famille: "Forces",
+    
     texte: "Une idée, une envie ou une vision nouvelle peut devenir une véritable force pour avancer."
   },
 
   "V-04": {
-    motCle: "Attachement",
-    famille: "Liens",
+    
     texte: "Un lien important influence la situation. Il peut unir, retenir ou rappeler ce qui compte vraiment."
   },
 
   "V-05": {
-    motCle: "Passage",
-    famille: "Mouvements",
+    
     texte: "Une transition est en cours. Quelque chose peut être laissé derrière pour entrer dans une nouvelle étape."
   },
 
   "V-06": {
-    motCle: "Bouleversement",
-    famille: "Mouvements",
+    
     texte: "Un changement puissant peut modifier rapidement l’équilibre actuel et ouvrir une direction inattendue."
   },
 
   "V-07": {
-    motCle: "Hésitation",
-    famille: "Ombres",
+    
     texte: "La situation manque de clarté et plusieurs directions peuvent compliquer ou ralentir la décision."
   },
 
   "V-08": {
-    motCle: "Amitié",
-    famille: "Liens",
+    
     texte: "Un lien sincère, une présence amicale ou un soutien proche peut jouer un rôle important."
   },
 
   "V-09": {
-    motCle: "Révélation",
-    famille: "Signes",
+    
     texte: "Une information ou une vérité peut apparaître et éclairer ce qui était jusque-là difficile à comprendre."
   },
 
   "V-10": {
-    motCle: "Mouvement",
-    famille: "Forces",
+    
     texte: "Une énergie dynamique pousse la situation à évoluer. L’immobilité n’est plus vraiment possible."
   },
 
   "V-11": {
-    motCle: "Soutien",
-    famille: "Liens",
+    
     texte: "Une personne, un lien ou une présence fiable peut apporter protection, aide ou stabilité."
   },
 
   "V-12": {
-    motCle: "Synchronicité",
-    famille: "Signes",
+    
     texte: "Une coïncidence ou un détail inattendu peut avoir du sens et orienter subtilement la suite."
   },
 
   "V-13": {
-    motCle: "Mystère",
-    famille: "Forces",
+    
     texte: "Tout n’a pas besoin d’être compris immédiatement. Une part d’inconnu peut contenir un potentiel encore caché."
   },
 
   "V-14": {
-    motCle: "Clarté",
-    famille: "Signes",
+    
     texte: "Un signe ou une compréhension nouvelle permet de voir la situation avec davantage de précision."
   },
 
   "V-15": {
-    motCle: "Rétrospection",
-    famille: "Mouvements",
+    
     texte: "Un retour sur le passé peut être nécessaire pour comprendre ce qui doit maintenant évoluer."
   },
 
   "V-16": {
-    motCle: "Pressentiment",
-    famille: "Signes",
+    
     texte: "Ton intuition capte quelque chose avant que les faits soient complètement visibles."
   },
 
   "V-17": {
-    motCle: "Confirmation",
-    famille: "Signes",
+   
     texte: "Un événement, une parole ou un détail vient confirmer une impression déjà présente."
   },
 
   "V-18": {
-    motCle: "Élévation",
-    famille: "Mouvements",
+    
     texte: "La situation peut progresser vers un niveau supérieur, à condition d’accepter l’effort ou l’évolution nécessaire."
   },
 
   "V-19": {
-    motCle: "Rapprochement",
-    famille: "Liens",
+    
     texte: "Une distance peut diminuer et un lien peut se reconstruire, se renforcer ou devenir plus fluide."
   },
 
   "V-20": {
-    motCle: "Amour",
-    famille: "Liens",
+    
     texte: "Les sentiments, l’affection ou un lien émotionnel fort occupent une place centrale dans la situation."
   },
 
   "V-21": {
-    motCle: "Changement",
-    famille: "Mouvements",
+    
     texte: "Une évolution arrive. Il peut être plus utile d’accompagner le mouvement que de chercher à le retenir."
   },
 
   "V-22": {
-    motCle: "Message",
-    famille: "Signes",
+  
     texte: "Une parole, une information ou un détail peut contenir une indication importante pour la suite."
   },
 
   "V-23": {
-    motCle: "Indice",
-    famille: "Signes",
+    
     texte: "Plusieurs petits éléments commencent à former un ensemble cohérent. Observe ce qui se répète."
   },
 
   "V-24": {
-    motCle: "Charge",
-    famille: "Ombres",
+    
     texte: "Une responsabilité, une pression ou un poids devient trop présent et mérite d’être regardé autrement."
   },
 
   "V-25": {
-    motCle: "Connexion",
-    famille: "Liens",
+    
     texte: "Un lien subtil unit des personnes, des événements ou des intentions et peut devenir plus important qu’il n’y paraît."
   },
 
   "V-26": {
-    motCle: "Réciprocité",
-    famille: "Liens",
+    
     texte: "Les sentiments, les efforts ou les intentions peuvent être partagés et circuler dans les deux sens."
   },
 
   "V-27": {
-    motCle: "Incertitude",
-    famille: "Ombres",
+    
     texte: "Une partie de la situation reste cachée ou difficile à lire. Mieux vaut éviter les conclusions trop rapides."
   },
 
   "V-28": {
-    motCle: "Harmonie",
-    famille: "Liens",
+    
     texte: "L’entente, l’équilibre et la compréhension mutuelle peuvent favoriser une évolution plus douce."
   },
 
   "V-29": {
-    motCle: "Révélation",
-    famille: "Ombres",
+    
     texte: "Une vérité cachée, un mécanisme ou une connexion complexe peut progressivement apparaître."
   },
 
   "V-30": {
-    motCle: "Renouveau",
-    famille: "Forces",
+    
     texte: "Une nouvelle énergie permet de repartir, de se régénérer ou d’aborder la situation autrement."
   },
   
 
 "V-31": {
-  motCle: "Transition",
-  famille: "Mouvements",
+  
   texte: "Une étape se termine tandis qu’une autre commence. La situation est en train de changer de forme."
 },
 
 "V-32": {
-  motCle: "Conflit",
-  famille: "Ombres",
+  
   texte: "Une opposition ou une tension perturbe l’équilibre. Quelque chose demande à être confronté ou clarifié."
 },
 
 "V-33": {
-  motCle: "Décision",
-  famille: "Mouvements",
+  
   texte: "Un choix devient nécessaire pour permettre à la situation d’avancer dans une direction plus précise."
 },
 
 "V-34": {
-  motCle: "Blessure",
-  famille: "Ombres",
+  
   texte: "Une douleur ancienne ou récente influence encore la situation et peut demander attention ou réparation."
 },
 
 "V-35": {
-  motCle: "Connexion",
-  famille: "Ombres",
+  
   texte: "Un lien existe, mais il peut être complexe, caché, pesant ou difficile à comprendre clairement."
 },
 
 "V-36": {
-  motCle: "Évolution",
-  famille: "Forces",
+  
   texte: "La situation possède les ressources nécessaires pour progresser et se transformer positivement."
 },
 
 "V-37": {
-  motCle: "Clarté",
-  famille: "Forces",
+  
   texte: "La capacité à comprendre, décider et voir l’essentiel devient une force importante dans cette situation."
 },
 
 "V-38": {
-  motCle: "Légèreté",
-  famille: "Mouvements",
+  
   texte: "Quelque chose peut devenir plus simple ou plus fluide. Il est peut-être temps de relâcher ce qui alourdit."
 },
 
 "V-39": {
-  motCle: "Opportunité",
-  famille: "Signes",
+  
   texte: "Une possibilité intéressante peut se présenter. Reste attentif aux ouvertures, même discrètes."
 },
 
 "V-40": {
-  motCle: "Rétention",
-  famille: "Ombres",
+  
   texte: "Quelque chose est retenu, contenu ou difficile à libérer. Cette immobilisation peut freiner l’évolution."
 },
 
 "V-41": {
-  motCle: "Croissance",
-  famille: "Forces",
+  
   texte: "Ce qui a été commencé possède un potentiel de développement. Patience et constance peuvent porter leurs fruits."
 },
 
 "V-42": {
-  motCle: "Blocage",
-  famille: "Ombres",
+  
   texte: "Un obstacle empêche actuellement la situation d’avancer normalement et demande à être identifié."
 },
 
 "V-43": {
-  motCle: "Écoute",
-  famille: "Signes",
+  
   texte: "Une indication importante peut venir d’une parole, d’un ressenti ou de quelque chose que tu n’écoutais pas encore."
 },
 
 "V-44": {
-  motCle: "Direction",
-  famille: "Mouvements",
+  
   texte: "Une voie commence à se dessiner. Il devient possible de savoir vers quoi avancer."
 },
 
 "V-45": {
-  motCle: "Famille",
-  famille: "Liens",
+ 
   texte: "Les liens familiaux, les racines ou le sentiment d’appartenance occupent une place importante dans la situation."
 },
 
 "V-46": {
-  motCle: "Épanouissement",
-  famille: "Forces",
+  
   texte: "Une situation peut atteindre une forme plus accomplie, plus heureuse ou plus conforme à ce que tu recherches."
 },
 
 "V-47": {
-  motCle: "Réflexion",
-  famille: "Liens",
+  
   texte: "Une relation ou un échange mérite d’être observé avec recul afin de mieux comprendre ce qui vous relie."
 },
 
 "V-48": {
-  motCle: "Solution",
-  famille: "Signes",
+  
   texte: "Un indice peut montrer comment résoudre la situation. La réponse est peut-être déjà plus proche qu’elle n’en a l’air."
 },
 
 "V-49": {
-  motCle: "Énergie",
-  famille: "Forces",
+  
   texte: "Une réserve de volonté, de vitalité ou de détermination peut être mobilisée pour faire avancer la situation."
 },
 
 "V-50": {
-  motCle: "Confusion",
-  famille: "Ombres",
+  
   texte: "Les informations ou les émotions se mélangent et rendent la situation difficile à lire avec précision."
 },
 
 "V-51": {
-  motCle: "Commencement",
-  famille: "Forces",
+  
   texte: "Une nouvelle possibilité possède l’énergie nécessaire pour prendre naissance et se développer."
 },
 
 "V-52": {
-  motCle: "Intuition",
-  famille: "Signes",
+  
   texte: "Un ressenti intérieur peut contenir une information importante, même si tu ne peux pas encore l’expliquer."
 },
 
 "V-53": {
-  motCle: "Stabilité",
-  famille: "Forces",
+  
   texte: "Des bases solides permettent de sécuriser la situation et de construire avec davantage de confiance."
 },
 
 "V-54": {
-  motCle: "Connexion",
-  famille: "Liens",
+  
   texte: "Un rapprochement ou un lien significatif se crée ou se renforce entre des personnes, des intentions ou des situations."
 },
 
 "V-55": {
-  motCle: "Départ",
-  famille: "Mouvements",
+ 
   texte: "Quelque chose quitte son point d’origine. Un nouveau trajet, une séparation ou une nouvelle aventure peut commencer."
 },
 
 "V-56": {
-  motCle: "Rupture",
-  famille: "Ombres",
+  
   texte: "Une séparation ou une cassure remet en question une situation qui ne peut plus continuer exactement comme avant."
 },
 
 "V-57": {
-  motCle: "Réussite",
-  famille: "Forces",
+  
   texte: "Les conditions peuvent permettre d’atteindre un objectif ou de voir les efforts engagés porter leurs fruits."
 },
 
 "V-58": {
-  motCle: "Appel",
-  famille: "Signes",
+  
   texte: "Quelque chose cherche à attirer ton attention. Une invitation, un besoin ou une direction mérite d’être entendue."
 },
 
 "V-59": {
-  motCle: "Liberté",
-  famille: "Forces",
+  
   texte: "Une possibilité de retrouver davantage d’autonomie, d’espace ou de choix devient accessible."
 },
 
 "V-60": {
-  motCle: "Engagement",
-  famille: "Liens",
+  
   texte: "Un lien demande de prendre position, de s’investir ou de donner une forme plus concrète à une relation."
 }
 
