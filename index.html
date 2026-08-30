@@ -446,55 +446,100 @@ function ouvrirTirage(nombreCartes) {
 
   cartesChoisies.forEach(function(imageCarte) {
 
-    const container = document.createElement("div");
+   const container = document.createElement("div");
 
-    container.style.width = "140px";
-    container.style.perspective = "1000px";
-
-
-    const flip = document.createElement("div");
-
-    flip.style.position = "relative";
-    flip.style.width = "140px";
-    flip.style.aspectRatio = "2 / 3";
-    flip.style.transformStyle = "preserve-3d";
-    flip.style.transition = "transform 0.7s ease";
-    flip.style.cursor = "pointer";
+container.style.width = "140px";
+container.style.height = "210px";
+container.style.perspective = "1000px";
+container.style.position = "relative";
 
 
-    const dos = document.createElement("img");
+const flip = document.createElement("div");
 
-    dos.src = "images/V-Dos.PNG";
+flip.style.width = "100%";
+flip.style.height = "100%";
 
-    dos.style.position = "absolute";
-    dos.style.width = "100%";
-    dos.style.height = "100%";
-    dos.style.objectFit = "cover";
-    dos.style.borderRadius = "14px";
-    dos.style.backfaceVisibility = "hidden";
-    dos.style.webkitBackfaceVisibility = "hidden";
+flip.style.position = "relative";
 
-    dos.style.boxShadow =
-      "0 0 20px rgba(120,180,255,0.28)";
+flip.style.transformStyle = "preserve-3d";
+flip.style.transition = "transform 0.7s ease";
+
+flip.style.transformOrigin = "center center";
+
+flip.style.cursor = "pointer";
 
 
-    const recto = document.createElement("img");
+const dos = document.createElement("img");
 
-    recto.src = imageCarte;
+dos.src = "images/V-Dos.PNG";
 
-    recto.style.position = "absolute";
-    recto.style.width = "100%";
-    recto.style.height = "100%";
-    recto.style.objectFit = "cover";
-    recto.style.borderRadius = "14px";
+dos.style.position = "absolute";
 
-    recto.style.transform = "rotateY(180deg)";
+dos.style.top = "0";
+dos.style.left = "0";
 
-    recto.style.backfaceVisibility = "hidden";
-    recto.style.webkitBackfaceVisibility = "hidden";
+dos.style.width = "100%";
+dos.style.height = "100%";
 
-    recto.style.boxShadow =
-      "0 0 24px rgba(150,110,255,0.38)";
+dos.style.objectFit = "cover";
+
+dos.style.borderRadius = "14px";
+
+dos.style.backfaceVisibility = "hidden";
+dos.style.webkitBackfaceVisibility = "hidden";
+
+dos.style.transform = "rotateY(0deg)";
+
+dos.style.boxShadow =
+  "0 0 20px rgba(120,180,255,0.28)";
+
+
+const recto = document.createElement("img");
+
+recto.src = imageCarte;
+
+recto.style.position = "absolute";
+
+recto.style.top = "0";
+recto.style.left = "0";
+
+recto.style.width = "100%";
+recto.style.height = "100%";
+
+recto.style.objectFit = "cover";
+
+recto.style.borderRadius = "14px";
+
+recto.style.transform = "rotateY(180deg)";
+
+recto.style.backfaceVisibility = "hidden";
+recto.style.webkitBackfaceVisibility = "hidden";
+
+recto.style.boxShadow =
+  "0 0 24px rgba(150,110,255,0.38)";
+
+
+flip.appendChild(dos);
+flip.appendChild(recto);
+
+container.appendChild(flip);
+zoneCartes.appendChild(container);
+
+
+let retournee = false;
+
+
+flip.addEventListener("click", function() {
+
+  if (retournee) {
+    return;
+  }
+
+  flip.style.transform = "rotateY(180deg)";
+
+  retournee = true;
+
+});
 
 
     flip.appendChild(dos);
