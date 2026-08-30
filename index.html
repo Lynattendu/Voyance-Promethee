@@ -88,83 +88,95 @@
   }
 
   /* halo diffus de la brèche */
-  .accueil::before {
-    content: "";
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 170px;
-    border-radius: 50%;
-    background:
-      radial-gradient(circle,
-        rgba(178, 240, 255, 0.22) 0%,
-        rgba(113, 210, 255, 0.16) 20%,
-        rgba(122, 94, 255, 0.12) 42%,
-        rgba(95, 53, 180, 0.05) 60%,
-        transparent 76%
-      );
-    filter: blur(10px);
-    pointer-events: none;
-  }
+.accueil::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 90px;
+  border-radius: 50%;
 
-  /* la crevasse lumineuse */
-  .accueil::after {
-    content: "";
-    position: absolute;
-    top: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 34px;
-    height: 135px;
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(235, 250, 255, 0.98) 0%,
-        rgba(190, 242, 255, 0.96) 12%,
-        rgba(129, 223, 255, 0.88) 30%,
-        rgba(122, 132, 255, 0.68) 58%,
-        rgba(149, 92, 255, 0.28) 82%,
-        rgba(149, 92, 255, 0.08) 100%
-      );
-
-    clip-path: polygon(
-      48% 0%,
-      65% 8%,
-      60% 18%,
-      69% 31%,
-      55% 45%,
-      66% 58%,
-      52% 73%,
-      58% 88%,
-      43% 100%,
-      26% 90%,
-      31% 73%,
-      21% 57%,
-      33% 44%,
-      25% 29%,
-      37% 14%
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(185, 240, 255, 0.22) 0%,
+      rgba(118, 214, 255, 0.15) 28%,
+      rgba(132, 92, 255, 0.10) 48%,
+      transparent 72%
     );
 
-    box-shadow:
-      0 0 10px rgba(171, 236, 255, 0.90),
-      0 0 24px rgba(118, 216, 255, 0.70),
-      0 0 52px rgba(130, 80, 255, 0.42);
+  filter: blur(12px);
+  pointer-events: none;
+}
+  /* la crevasse lumineuse */
+.accueil::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 24px;
 
-    pointer-events: none;
-  }
+  background:
+    linear-gradient(
+      90deg,
+      rgba(115, 72, 255, 0.05) 0%,
+      rgba(154, 94, 255, 0.20) 12%,
+      rgba(122, 224, 255, 0.78) 32%,
+      rgba(245, 252, 255, 1) 50%,
+      rgba(122, 224, 255, 0.78) 68%,
+      rgba(154, 94, 255, 0.20) 88%,
+      rgba(115, 72, 255, 0.05) 100%
+    );
 
+  clip-path: polygon(
+    0% 52%,
+    8% 42%,
+    16% 57%,
+    24% 40%,
+    34% 56%,
+    43% 38%,
+    52% 53%,
+    61% 39%,
+    70% 57%,
+    79% 43%,
+    88% 58%,
+    94% 47%,
+    100% 54%,
+    100% 70%,
+    94% 60%,
+    87% 74%,
+    79% 59%,
+    70% 73%,
+    61% 57%,
+    52% 69%,
+    43% 56%,
+    34% 71%,
+    24% 55%,
+    16% 68%,
+    8% 57%,
+    0% 65%
+  );
+
+  box-shadow:
+    0 0 10px rgba(188, 243, 255, 0.95),
+    0 0 24px rgba(109, 219, 255, 0.72),
+    0 0 48px rgba(136, 82, 255, 0.40);
+
+  pointer-events: none;
+}
   h1 {
-    font-size: 42px;
-    margin: 120px 0 10px;
-    letter-spacing: 1.5px;
-    text-shadow:
-      0 0 8px rgba(255,255,255,0.82),
-      0 0 18px rgba(137, 94, 255, 0.72),
-      0 0 42px rgba(66, 207, 255, 0.30);
-  }
+  font-size: 42px;
+  margin: 88px 0 10px;
+  letter-spacing: 1.5px;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.82),
+    0 0 18px rgba(137, 94, 255, 0.72),
+    0 0 42px rgba(66, 207, 255, 0.30);
+}
 
   .sous-titre {
     font-size: 18px;
@@ -248,22 +260,22 @@
       padding: 28px 14px 45px;
     }
 
-    .accueil::before {
-      width: 120px;
-      height: 145px;
-      top: -2px;
-    }
+  .accueil::before {
+  width: 180px;
+  height: 70px;
+  top: 4px;
+}
 
-    .accueil::after {
-      width: 28px;
-      height: 108px;
-      top: 8px;
-    }
+.accueil::after {
+  width: 135px;
+  height: 18px;
+  top: 26px;
+}
 
     h1 {
-      font-size: 31px;
-      margin-top: 98px;
-    }
+  font-size: 31px;
+  margin-top: 76px;
+}
 
     .nom-tirage {
       font-size: 20px;
@@ -284,7 +296,7 @@
 
   <div class="accueil">
 
-    <h1>🔮 VOYANCE PROMÉTHÉE</h1>
+    <h1> VOYANCE PROMÉTHÉE</h1>
 
     <div class="sous-titre">
       Choisis ton tirage
