@@ -1,300 +1,413 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Voyance Prométhée</title>
-<link rel="apple-touch-icon" href="images/Icone-app.PNG">
-<link rel="icon" type="image/png" href="images/Icone-app.PNG">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
-  
-<style>
-  * {
-    box-sizing: border-box;
-  }
+  <meta
+    name="theme-color"
+    content="#09061a"
+  >
 
-  body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;
-    position: relative;
-
-    background:
-      radial-gradient(circle at 50% 12%,
-        rgba(111, 82, 255, 0.30) 0%,
-        rgba(61, 37, 130, 0.16) 22%,
-        transparent 48%
-      ),
-      radial-gradient(circle at 14% 40%,
-        rgba(0, 191, 255, 0.12) 0%,
-        transparent 30%
-      ),
-      radial-gradient(circle at 84% 76%,
-        rgba(195, 95, 255, 0.10) 0%,
-        transparent 35%
-      ),
-      linear-gradient(
-        180deg,
-        #09061a 0%,
-        #10092a 48%,
-        #040510 100%
-      );
-  }
-
-  /* halo général derrière le haut de la page */
-  body::before {
-    content: "";
-    position: fixed;
-    top: -80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 700px;
-    height: 380px;
-    background: radial-gradient(circle,
-      rgba(114, 94, 255, 0.18) 0%,
-      rgba(72, 198, 255, 0.08) 22%,
-      rgba(145, 85, 255, 0.05) 40%,
-      transparent 70%
-    );
-    filter: blur(18px);
-    pointer-events: none;
-  }
-
-  /* petites étoiles */
-  body::after {
-    content: "✦     ·        ✧        ·      ✦      ·       ✧     ·      ✦";
-    position: fixed;
-    top: 9%;
-    left: 5%;
-    width: 90%;
-    font-size: 16px;
-    letter-spacing: 22px;
-    color: rgba(208, 224, 255, 0.28);
-    pointer-events: none;
-  }
-
-  .accueil {
-    width: 92%;
-    max-width: 700px;
-    padding: 40px 20px 55px;
-    position: relative;
-    z-index: 2;
-  }
-
-  /* halo diffus de la brèche */
-.accueil::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  height: 90px;
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(185, 240, 255, 0.22) 0%,
-      rgba(118, 214, 255, 0.15) 28%,
-      rgba(132, 92, 255, 0.10) 48%,
-      transparent 72%
-    );
-
-  filter: blur(12px);
-  pointer-events: none;
-}
-  /* la crevasse lumineuse */
-.accueil::after {
-  content: "";
-  position: absolute;
-  top: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 180px;
-  height: 24px;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(115, 72, 255, 0.05) 0%,
-      rgba(154, 94, 255, 0.20) 12%,
-      rgba(122, 224, 255, 0.78) 32%,
-      rgba(245, 252, 255, 1) 50%,
-      rgba(122, 224, 255, 0.78) 68%,
-      rgba(154, 94, 255, 0.20) 88%,
-      rgba(115, 72, 255, 0.05) 100%
-    );
-
-  clip-path: polygon(
-    0% 52%,
-    8% 42%,
-    16% 57%,
-    24% 40%,
-    34% 56%,
-    43% 38%,
-    52% 53%,
-    61% 39%,
-    70% 57%,
-    79% 43%,
-    88% 58%,
-    94% 47%,
-    100% 54%,
-    100% 70%,
-    94% 60%,
-    87% 74%,
-    79% 59%,
-    70% 73%,
-    61% 57%,
-    52% 69%,
-    43% 56%,
-    34% 71%,
-    24% 55%,
-    16% 68%,
-    8% 57%,
-    0% 65%
-  );
-
-  box-shadow:
-    0 0 10px rgba(188, 243, 255, 0.95),
-    0 0 24px rgba(109, 219, 255, 0.72),
-    0 0 48px rgba(136, 82, 255, 0.40);
-
-  pointer-events: none;
-}
-  h1 {
-  font-size: 42px;
-  margin: 88px 0 10px;
-  letter-spacing: 1.5px;
-  text-shadow:
-    0 0 8px rgba(255,255,255,0.82),
-    0 0 18px rgba(137, 94, 255, 0.72),
-    0 0 42px rgba(66, 207, 255, 0.30);
-}
-
-  .sous-titre {
-    font-size: 18px;
-    margin-bottom: 36px;
-    color: rgba(228, 234, 255, 0.86);
-    letter-spacing: 1px;
-  }
-
-  .bouton-tirage {
-    width: 100%;
-    margin: 15px 0;
-    padding: 22px 24px;
-    border-radius: 22px;
-    border: 1px solid rgba(178, 220, 255, 0.35);
-    color: white;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-
-    background:
-      linear-gradient(
-        135deg,
-        rgba(126, 83, 220, 0.40),
-        rgba(39, 32, 92, 0.58)
-      );
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    box-shadow:
-      0 0 18px rgba(119, 95, 255, 0.18),
-      inset 0 0 18px rgba(255,255,255,0.04);
-
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease,
-      border-color 0.25s ease;
-  }
-
-  .bouton-tirage::before {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    top: -90px;
-    left: -70px;
-    border-radius: 50%;
-    background:
-      radial-gradient(
-        circle,
-        rgba(115, 229, 255, 0.16),
-        transparent 68%
-      );
-    pointer-events: none;
-  }
-
-  .bouton-tirage:hover {
-    transform: translateY(-3px) scale(1.015);
-    border-color: rgba(162, 229, 255, 0.75);
-    box-shadow:
-      0 0 18px rgba(104, 215, 255, 0.30),
-      0 0 35px rgba(134, 77, 255, 0.25),
-      inset 0 0 20px rgba(255,255,255,0.05);
-  }
-
-  .nom-tirage {
-    font-size: 23px;
-    font-weight: bold;
-    margin-bottom: 7px;
-    letter-spacing: 0.5px;
-    text-shadow: 0 0 10px rgba(169, 216, 255, 0.35);
-  }
-
-  .description {
-    font-size: 15px;
-    color: rgba(229, 232, 255, 0.82);
-  }
-
-  @media (max-width: 600px) {
-    .accueil {
-      padding: 28px 14px 45px;
-    }
-
-  .accueil::before {
-  width: 180px;
-  height: 70px;
-  top: 4px;
-}
-
-.accueil::after {
-  width: 135px;
-  height: 18px;
-  top: 26px;
-}
-
-    h1 {
-  font-size: 31px;
-  margin-top: 76px;
-}
-
-    .nom-tirage {
-      font-size: 20px;
-    }
-
-    .bouton-tirage {
-      padding: 19px 14px;
-    }
-  }
-</style>
+  <title>
+    Voyance Prométhée
+  </title>
 
 
-  
+  <!-- ICÔNE IPHONE / IPAD -->
+
+  <link
+    rel="apple-touch-icon"
+    href="images/Icone-app.PNG"
+  >
+
+
+  <!-- ICÔNE NAVIGATEUR -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="images/Icone-app.PNG"
+  >
+
+
+  <!-- STYLE -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 
 
 <body>
 
+
+  <!-- =====================================================
+       ACCUEIL
+  ====================================================== -->
+
+  <main
+    class="accueil"
+    id="accueil"
+  >
+
+
+    <h1>
+      VOYANCE PROMÉTHÉE
+    </h1>
+
+
+    <p class="sous-titre">
+      Choisis ton tirage
+    </p>
+
+
+
+    <!-- ===================================================
+         TIRAGE 1 CARTE
+    ==================================================== -->
+
+    <button
+      class="bouton-tirage"
+      data-tirage="1"
+      type="button"
+    >
+
+      <span class="nom-tirage">
+        ⚡ TIRAGE ÉCLAIR
+      </span>
+
+      <span class="description">
+        1 carte — Une réponse immédiate
+      </span>
+
+    </button>
+
+
+
+    <!-- ===================================================
+         TIRAGE 3 CARTES
+    ==================================================== -->
+
+    <button
+      class="bouton-tirage"
+      data-tirage="3"
+      type="button"
+    >
+
+      <span class="nom-tirage">
+        ✨ TIRAGE CLAIR
+      </span>
+
+      <span class="description">
+        3 cartes — Comprendre la situation
+      </span>
+
+    </button>
+
+
+
+    <!-- ===================================================
+         TIRAGE 5 CARTES
+    ==================================================== -->
+
+    <button
+      class="bouton-tirage"
+      data-tirage="5"
+      type="button"
+    >
+
+      <span class="nom-tirage">
+        🌙 TIRAGE PROFOND
+      </span>
+
+      <span class="description">
+        5 cartes — Explorer ce qui agit autour de toi
+      </span>
+
+    </button>
+
+
+
+    <!-- ===================================================
+         TIRAGE 7 CARTES
+    ==================================================== -->
+
+    <button
+      class="bouton-tirage"
+      data-tirage="7"
+      type="button"
+    >
+
+      <span class="nom-tirage">
+        🌌 GRAND TIRAGE
+      </span>
+
+      <span class="description">
+        7 cartes — Une lecture complète
+      </span>
+
+    </button>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       ÉCRAN DE TIRAGE
+  ====================================================== -->
+
+  <section
+    class="zone-tirage"
+    id="zoneTirage"
+    hidden
+  >
+
+
+    <!-- TITRE -->
+
+    <header class="entete-tirage">
+
+      <h2 id="titreTirage">
+      </h2>
+
+      <p
+        class="description-tirage"
+        id="descriptionTirage"
+      >
+      </p>
+
+    </header>
+
+
+
+    <!-- ===================================================
+         CARTES
+    ==================================================== -->
+
+    <div
+      class="cartes-tirage"
+      id="cartesTirage"
+    >
+    </div>
+
+
+
+    <!-- ===================================================
+         LECTURE APPROFONDIE
+         Le bouton sera affiché automatiquement
+         lorsque toutes les cartes seront retournées.
+    ==================================================== -->
+
+    <section
+      class="lecture-approfondie"
+      id="lectureApprofondie"
+    >
+
+
+      <!-- BOUTON -->
+
+      <button
+        class="bouton-lecture"
+        id="lectureApprofondieBtn"
+        type="button"
+        hidden
+      >
+        🔮 Lecture approfondie
+      </button>
+
+
+
+      <!-- =================================================
+           RÉSULTAT DE LA LECTURE APPROFONDIE
+      ================================================== -->
+
+      <div
+        class="lecture-resultat"
+        id="lectureApprofondieZone"
+        hidden
+      >
+
+
+        <div class="lecture-entete">
+
+          <div class="lecture-symbole">
+            ✦
+          </div>
+
+          <h3>
+            Lecture approfondie
+          </h3>
+
+          <p>
+            Les cartes sont maintenant interprétées
+            en relation les unes avec les autres.
+          </p>
+
+        </div>
+
+
+
+        <!-- ===============================================
+             ÉNERGIE GÉNÉRALE
+             Prévu pour plus tard
+        ================================================ -->
+
+        <section
+          class="lecture-section"
+          id="lectureEnergieGenerale"
+          hidden
+        >
+
+          <h4>
+            Énergie générale
+          </h4>
+
+          <div
+            class="lecture-contenu"
+            id="lectureEnergieContenu"
+          >
+          </div>
+
+        </section>
+
+
+
+        <!-- ===============================================
+             ASSOCIATIONS ENTRE CARTES
+        ================================================ -->
+
+        <section
+          class="lecture-section"
+          id="lectureAssociations"
+        >
+
+          <h4>
+            Associations des cartes
+          </h4>
+
+          <div
+            class="lecture-contenu"
+            id="lectureAssociationsContenu"
+          >
+          </div>
+
+        </section>
+
+
+
+        <!-- ===============================================
+             FAMILLE DOMINANTE
+             Prévu pour plus tard
+        ================================================ -->
+
+        <section
+          class="lecture-section"
+          id="lectureFamilleDominante"
+          hidden
+        >
+
+          <h4>
+            Influence dominante
+          </h4>
+
+          <div
+            class="lecture-contenu"
+            id="lectureFamilleContenu"
+          >
+          </div>
+
+        </section>
+
+
+
+        <!-- ===============================================
+             SYNTHÈSE DU TIRAGE
+             Prévu pour plus tard
+        ================================================ -->
+
+        <section
+          class="lecture-section lecture-synthese"
+          id="lectureSynthese"
+          hidden
+        >
+
+          <h4>
+            Synthèse
+          </h4>
+
+          <div
+            class="lecture-contenu"
+            id="lectureSyntheseContenu"
+          >
+          </div>
+
+        </section>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         ACTIONS
+    ==================================================== -->
+
+    <div class="actions-tirage">
+
+
+      <!-- NOUVEAU TIRAGE -->
+
+      <button
+        class="bouton-action bouton-nouveau"
+        id="nouveauTirageBtn"
+        type="button"
+      >
+        🔄 Nouveau tirage
+      </button>
+
+
+
+      <!-- RETOUR ACCUEIL -->
+
+      <button
+        class="bouton-action bouton-retour"
+        id="retourAccueilBtn"
+        type="button"
+      >
+        ← Retour
+      </button>
+
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+
+</body>
+
+</html>
   <div class="accueil">
 
     <h1> VOYANCE PROMÉTHÉE</h1>
