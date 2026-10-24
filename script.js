@@ -1,6 +1,7 @@
 /* =========================================================
    VOYANCE PROMÉTHÉE
    SCRIPT.JS
+   Version avec lecture approfondie globale
 ========================================================= */
 
 
@@ -18,8 +19,10 @@ let nombreCartesRetournees = 0;
 /* =========================================================
    INFORMATIONS DES 60 CARTES
 
-   motCle et famille ne sont PAS affichés sous les cartes.
-   Ils servent uniquement à la lecture approfondie.
+   motCle et famille servent uniquement à construire
+   la lecture approfondie.
+
+   Le lecteur voit seulement la phrase individuelle.
 ========================================================= */
 
 const infosCartes = {
@@ -388,7 +391,7 @@ const infosCartes = {
 
 
 /* =========================================================
-   RÔLES SELON LE TYPE DE TIRAGE
+   RÔLES DES TIRAGES
 ========================================================= */
 
 const rolesTirages = {
@@ -454,201 +457,6 @@ const titresTirages = {
 
 
 /* =========================================================
-   COMBINAISONS SPÉCIALES
-
-   Elles remplacent la lecture générique lorsque
-   deux cartes particulières apparaissent côte à côte.
-========================================================= */
-
-const combinaisonsSpeciales = {
-
-  "V-01|V-44":
-    "L’orientation se précise nettement. Une direction concrète semble émerger et invite à avancer avec davantage de confiance.",
-
-  "V-04|V-40":
-    "Un attachement peut être maintenu plus fortement qu’il ne devrait l’être. Il peut être utile de regarder ce qui empêche de lâcher prise.",
-
-  "V-04|V-59":
-    "Un lien important se confronte à un besoin de liberté. L’équilibre dépendra de la capacité à rester lié sans se sentir enfermé.",
-
-  "V-05|V-31":
-    "Le passage est confirmé par une véritable transition. Une étape semble se fermer pour laisser place à une nouvelle configuration.",
-
-  "V-06|V-53":
-    "Un bouleversement vient toucher une situation pourtant stable. Après l’agitation, de nouvelles bases peuvent cependant se reconstruire.",
-
-  "V-08|V-11":
-    "Une amitié ou une relation de confiance peut apporter un soutien particulièrement précieux dans la situation.",
-
-  "V-09|V-29":
-    "Une vérité importante cherche à émerger. Ce qui était caché ou complexe pourrait progressivement devenir visible.",
-
-  "V-12|V-23":
-    "Les coïncidences ne semblent pas anodines. Plusieurs indices peuvent se rejoindre et former un message plus cohérent.",
-
-  "V-14|V-27":
-    "L’incertitude peut progressivement se dissiper. Une information, un signe ou une compréhension nouvelle aide à y voir plus clair.",
-
-  "V-16|V-52":
-    "Le pressentiment et l’intuition se renforcent mutuellement. Ce que tu ressens mérite probablement d’être écouté avec attention.",
-
-  "V-17|V-22":
-    "Un message, une parole ou une information peut venir confirmer quelque chose que tu pressentais déjà.",
-
-  "V-17|V-52":
-    "Une intuition pourrait recevoir une confirmation concrète. Un ressenti intérieur trouve progressivement un écho dans les faits.",
-
-  "V-18|V-46":
-    "La progression mène vers une forme d’épanouissement. Les efforts engagés peuvent permettre d’atteindre un niveau plus satisfaisant.",
-
-  "V-19|V-54":
-    "Le rapprochement est renforcé par une véritable connexion. Un lien peut reprendre de l’importance ou devenir plus profond.",
-
-  "V-20|V-26":
-    "Les sentiments semblent pouvoir circuler dans les deux sens. Cette association favorise l’idée d’un amour ou d’une affection réciproque.",
-
-  "V-20|V-27":
-    "Les sentiments sont présents, mais une zone d’incertitude demeure. Tout n’est peut-être pas encore dit, compris ou assumé.",
-
-  "V-20|V-56":
-    "Une relation affective traverse une cassure, une séparation ou une transformation importante. Le lien ne peut probablement pas continuer exactement comme avant.",
-
-  "V-21|V-36":
-    "Le changement ne semble pas seulement passager : il peut conduire à une véritable évolution de la situation.",
-
-  "V-23|V-48":
-    "Un indice peut mener directement vers une solution. Observe particulièrement les détails, répétitions ou informations qui apparaissent.",
-
-  "V-24|V-38":
-    "Une charge peut commencer à s’alléger. Cette association invite à relâcher ce qui pèse inutilement.",
-
-  "V-25|V-35":
-    "Une connexion existe bien, mais elle peut comporter une part cachée, complexe ou difficile à comprendre complètement.",
-
-  "V-28|V-32":
-    "Un conflit peut être dépassé à condition de rechercher l’équilibre, le dialogue ou une forme de compréhension mutuelle.",
-
-  "V-30|V-34":
-    "Une blessure peut entrer dans une phase de réparation ou de renouveau. Quelque chose peut recommencer différemment.",
-
-  "V-31|V-51":
-    "Une transition ouvre directement sur un commencement. Une nouvelle étape paraît prête à prendre forme.",
-
-  "V-33|V-44":
-    "Une décision permet de définir clairement une direction. Le moment semble favorable pour choisir un cap.",
-
-  "V-36|V-57":
-    "L’évolution peut conduire à une réussite. La progression engagée possède un potentiel favorable.",
-
-  "V-37|V-50":
-    "La confusion peut être dépassée grâce à une compréhension plus nette. Les éléments commencent à se remettre en ordre.",
-
-  "V-39|V-57":
-    "Une opportunité peut mener à une réussite si elle est reconnue et saisie au bon moment.",
-
-  "V-41|V-46":
-    "Ce qui grandit peut atteindre une forme d’épanouissement. Cette association parle d’un développement favorable et progressif.",
-
-  "V-42|V-48":
-    "Un blocage existe, mais une solution semble également accessible. La difficulté n’est probablement pas définitive.",
-
-  "V-42|V-49":
-    "Un obstacle ralentit la situation, mais l’énergie nécessaire pour le dépasser est présente ou peut être mobilisée.",
-
-  "V-43|V-58":
-    "Quelque chose cherche clairement à être entendu. Une parole, un besoin ou un appel mérite une attention particulière.",
-
-  "V-45|V-60":
-    "Un engagement peut concerner directement la famille, les racines ou un lien d’appartenance particulièrement important.",
-
-  "V-51|V-55":
-    "Un départ ouvre sur un commencement. Quitter une situation peut devenir la condition nécessaire pour entrer dans une nouvelle étape.",
-
-  "V-53|V-60":
-    "Un engagement peut apporter de la stabilité et donner une forme plus solide ou durable à un lien."
-
-};
-
-
-/* =========================================================
-   INTERPRÉTATIONS DES ASSOCIATIONS DE FAMILLES
-========================================================= */
-
-const associationsFamilles = {
-
-  "Forces|Forces":
-    "Les deux cartes se renforcent. Il existe ici un potentiel important de progression, de construction ou d’accomplissement.",
-
-  "Liens|Liens":
-    "La relation, l’attachement ou les échanges occupent une place centrale. Ce qui se joue dépend fortement des personnes impliquées.",
-
-  "Mouvements|Mouvements":
-    "La situation est clairement en évolution. Plusieurs éléments poussent vers un changement, un déplacement ou une nouvelle étape.",
-
-  "Signes|Signes":
-    "Les indications se multiplient. Les messages, intuitions ou coïncidences méritent d’être observés attentivement.",
-
-  "Ombres|Ombres":
-    "Deux éléments complexes se répondent. Une difficulté, une peur ou quelque chose de caché demande à être regardé avant de pouvoir avancer.",
-
-  "Forces|Liens":
-    "Un lien peut devenir une véritable ressource. Une relation, un soutien ou un engagement favorise la situation.",
-
-  "Forces|Mouvements":
-    "L’énergie disponible favorise l’évolution. Le changement paraît soutenu par des ressources capables de le faire avancer.",
-
-  "Forces|Signes":
-    "Une indication ou une intuition peut révéler une possibilité favorable. Il est utile de rester attentif à ce qui se présente.",
-
-  "Forces|Ombres":
-    "Une difficulté est présente, mais des ressources existent pour lui faire face. Cette association parle davantage de dépassement que d’impasse.",
-
-  "Liens|Mouvements":
-    "Une relation ou un lien est en train d’évoluer. Rapprochement, éloignement ou changement de dynamique sont possibles.",
-
-  "Liens|Signes":
-    "Une information, une parole ou un ressenti peut être particulièrement important dans une relation.",
-
-  "Liens|Ombres":
-    "Un lien comporte une zone sensible, complexe ou cachée. Il peut être nécessaire de clarifier ce qui pèse sur la relation.",
-
-  "Mouvements|Signes":
-    "Un signe peut indiquer la direction du changement. Observe ce qui apparaît au moment où la situation commence à évoluer.",
-
-  "Mouvements|Ombres":
-    "La situation cherche à avancer mais rencontre une résistance, une hésitation ou un obstacle qui ralentit le mouvement.",
-
-  "Signes|Ombres":
-    "Les informations disponibles restent partielles ou ambiguës. L’intuition peut aider, mais il vaut mieux éviter les conclusions trop rapides."
-
-};
-
-
-/* =========================================================
-   TEXTES DES FAMILLES DOMINANTES
-========================================================= */
-
-const textesFamillesDominantes = {
-
-  Forces:
-    "Les Forces dominent ce tirage. L’accent est mis sur les ressources disponibles, la progression, la capacité d’agir et ce qui peut se construire.",
-
-  Liens:
-    "Les Liens dominent ce tirage. Les relations, sentiments, échanges ou engagements semblent jouer un rôle essentiel dans la situation.",
-
-  Mouvements:
-    "Les Mouvements dominent ce tirage. La situation n’est pas figée : changement, évolution, déplacement ou décision occupent une place importante.",
-
-  Signes:
-    "Les Signes dominent ce tirage. Les messages, intuitions, coïncidences et informations discrètes méritent une attention particulière.",
-
-  Ombres:
-    "Les Ombres dominent ce tirage. Certaines zones restent complexes, cachées ou difficiles. La compréhension de ce qui bloque semble essentielle avant d’avancer."
-
-};
-
-
-/* =========================================================
    INITIALISATION
 ========================================================= */
 
@@ -656,33 +464,28 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-    const boutonsTirage =
-      document.querySelectorAll(
+    document
+      .querySelectorAll(
         ".bouton-tirage"
-      );
+      )
+      .forEach(
+        bouton => {
 
+          bouton.addEventListener(
+            "click",
+            () => {
 
-    boutonsTirage.forEach(
-      bouton => {
-
-        bouton.addEventListener(
-          "click",
-          () => {
-
-            const nombreCartes =
-              Number(
-                bouton.dataset.tirage
+              ouvrirTirage(
+                Number(
+                  bouton.dataset.tirage
+                )
               );
 
-            ouvrirTirage(
-              nombreCartes
-            );
+            }
+          );
 
-          }
-        );
-
-      }
-    );
+        }
+      );
 
 
     document
@@ -747,32 +550,10 @@ function ouvrirTirage(
     );
 
 
-  const titre =
-    document.getElementById(
-      "titreTirage"
-    );
-
-
-  const description =
-    document.getElementById(
-      "descriptionTirage"
-    );
-
-
   const zoneCartes =
     document.getElementById(
       "cartesTirage"
     );
-
-
-  accueil.hidden = true;
-
-  zoneTirage.hidden = false;
-
-  zoneCartes.innerHTML = "";
-
-
-  reinitialiserLectureApprofondie();
 
 
   const infosTirage =
@@ -781,85 +562,53 @@ function ouvrirTirage(
     ];
 
 
-  titre.textContent =
+  accueil.hidden =
+    true;
+
+
+  zoneTirage.hidden =
+    false;
+
+
+  zoneCartes.innerHTML =
+    "";
+
+
+  document.getElementById(
+    "titreTirage"
+  ).textContent =
     infosTirage.titre;
 
 
-  description.textContent =
+  document.getElementById(
+    "descriptionTirage"
+  ).textContent =
     infosTirage.description;
 
 
-  const roles =
-    rolesTirages[
-      nombreCartes
-    ];
+  reinitialiserLectureApprofondie();
 
 
-  /* =======================================================
-     CRÉATION DU PAQUET
-  ======================================================= */
-
-  const paquet = [];
+  const paquet =
+    creerPaquet();
 
 
-  for (
-    let i = 1;
-    i <= 60;
-    i++
-  ) {
+  melangerPaquet(
+    paquet
+  );
 
-    const numero =
-      String(i)
-        .padStart(
-          2,
-          "0"
-        );
-
-
-    paquet.push(
-      `images/Cartes/V-${numero}.PNG`
-    );
-
-  }
-
-
-  /* =======================================================
-     MÉLANGE
-  ======================================================= */
-
-  for (
-    let i = paquet.length - 1;
-    i > 0;
-    i--
-  ) {
-
-    const j =
-      Math.floor(
-        Math.random()
-        * (i + 1)
-      );
-
-
-    [
-      paquet[i],
-      paquet[j]
-    ] = [
-      paquet[j],
-      paquet[i]
-    ];
-
-  }
-
-
-  /* =======================================================
-     CARTES DU TIRAGE
-  ======================================================= */
 
   const cartesChoisies =
     paquet.slice(
       0,
       nombreCartes
     );
+
+
+  const roles =
+    rolesTirages[
+      nombreCartes
+    ];
 
 
   cartesChoisies.forEach(
@@ -892,8 +641,8 @@ function ouvrirTirage(
         imageCarte,
         roles[index],
         index,
-        zoneCartes,
-        nombreCartes
+        nombreCartes,
+        zoneCartes
       );
 
     }
@@ -909,6 +658,78 @@ function ouvrirTirage(
 
 
 /* =========================================================
+   CRÉER LE PAQUET
+========================================================= */
+
+function creerPaquet() {
+
+  const paquet = [];
+
+
+  for (
+    let i = 1;
+    i <= 60;
+    i++
+  ) {
+
+    const numero =
+      String(i)
+        .padStart(
+          2,
+          "0"
+        );
+
+
+    paquet.push(
+      `images/Cartes/V-${numero}.PNG`
+    );
+
+  }
+
+
+  return paquet;
+
+}
+
+
+/* =========================================================
+   MÉLANGER LE PAQUET
+========================================================= */
+
+function melangerPaquet(
+  paquet
+) {
+
+  for (
+    let i =
+      paquet.length - 1;
+
+    i > 0;
+
+    i--
+  ) {
+
+    const j =
+      Math.floor(
+        Math.random()
+        * (i + 1)
+      );
+
+
+    [
+      paquet[i],
+      paquet[j]
+    ] = [
+      paquet[j],
+      paquet[i]
+    ];
+
+  }
+
+}
+
+
+/* =========================================================
    CRÉER UNE CARTE
 ========================================================= */
 
@@ -916,8 +737,8 @@ function creerCarte(
   imageCarte,
   roleCarte,
   indexCarte,
-  zoneCartes,
-  nombreCartes
+  nombreCartes,
+  zoneCartes
 ) {
 
   const container =
@@ -940,10 +761,6 @@ function creerCarte(
     "carte-flip";
 
 
-  /* =======================================================
-     DOS
-  ======================================================= */
-
   const dos =
     document.createElement(
       "img"
@@ -961,10 +778,6 @@ function creerCarte(
   dos.className =
     "carte-face carte-dos";
 
-
-  /* =======================================================
-     RECTO
-  ======================================================= */
 
   const recto =
     document.createElement(
@@ -984,10 +797,6 @@ function creerCarte(
     "carte-face carte-recto";
 
 
-  /* =======================================================
-     RÔLE
-  ======================================================= */
-
   const role =
     document.createElement(
       "div"
@@ -1002,10 +811,6 @@ function creerCarte(
     roleCarte;
 
 
-  /* =======================================================
-     INTERPRÉTATION
-  ======================================================= */
-
   const interpretation =
     document.createElement(
       "div"
@@ -1015,10 +820,6 @@ function creerCarte(
   interpretation.className =
     "carte-interpretation";
 
-
-  /* =======================================================
-     ASSEMBLAGE
-  ======================================================= */
 
   flip.appendChild(
     dos
@@ -1049,10 +850,6 @@ function creerCarte(
     container
   );
 
-
-  /* =======================================================
-     RETOURNEMENT
-  ======================================================= */
 
   let retournee =
     false;
@@ -1106,7 +903,7 @@ function creerCarte(
 
 
 /* =========================================================
-   AFFICHER LA SIGNIFICATION INDIVIDUELLE
+   SIGNIFICATION INDIVIDUELLE
 ========================================================= */
 
 function afficherInterpretation(
@@ -1114,7 +911,7 @@ function afficherInterpretation(
   interpretation
 ) {
 
-  const nomFichier =
+  const numeroCarte =
     obtenirNumeroCarte(
       imageCarte
     );
@@ -1122,7 +919,7 @@ function afficherInterpretation(
 
   const info =
     infosCartes[
-      nomFichier
+      numeroCarte
     ];
 
 
@@ -1147,7 +944,7 @@ function afficherInterpretation(
 
 
 /* =========================================================
-   EXTRAIRE V-XX DU NOM DE FICHIER
+   NUMÉRO DE CARTE
 ========================================================= */
 
 function obtenirNumeroCarte(
@@ -1166,7 +963,7 @@ function obtenirNumeroCarte(
 
 
 /* =========================================================
-   VÉRIFIER SI LA LECTURE APPROFONDIE EST DISPONIBLE
+   AFFICHER LE BOUTON LECTURE APPROFONDIE
 ========================================================= */
 
 function verifierLectureDisponible(
@@ -1192,77 +989,78 @@ function verifierLectureDisponible(
   }
 
 
-  const bouton =
-    document.getElementById(
-      "lectureApprofondieBtn"
-    );
-
-
-  bouton.hidden =
+  document.getElementById(
+    "lectureApprofondieBtn"
+  ).hidden =
     false;
 
 }
 
 
 /* =========================================================
-   RÉINITIALISER LA LECTURE APPROFONDIE
+   RESET DE LA LECTURE
 ========================================================= */
 
 function reinitialiserLectureApprofondie() {
 
-  const bouton =
-    document.getElementById(
-      "lectureApprofondieBtn"
-    );
-
-
-  const zone =
-    document.getElementById(
-      "lectureApprofondieZone"
-    );
-
-
-  bouton.hidden =
+  document.getElementById(
+    "lectureApprofondieBtn"
+  ).hidden =
     true;
 
 
-  zone.hidden =
+  document.getElementById(
+    "lectureApprofondieZone"
+  ).hidden =
     true;
 
 
   document.getElementById(
     "lectureEnergieGenerale"
-  ).hidden = true;
+  ).hidden =
+    true;
 
 
   document.getElementById(
     "lectureFamilleDominante"
-  ).hidden = true;
+  ).hidden =
+    true;
 
 
   document.getElementById(
     "lectureSynthese"
-  ).hidden = true;
+  ).hidden =
+    true;
 
 
   document.getElementById(
-    "lectureAssociationsContenu"
-  ).innerHTML = "";
+    "lectureAssociations"
+  ).hidden =
+    true;
 
 
   document.getElementById(
     "lectureEnergieContenu"
-  ).innerHTML = "";
+  ).innerHTML =
+    "";
 
 
   document.getElementById(
     "lectureFamilleContenu"
-  ).innerHTML = "";
+  ).innerHTML =
+    "";
 
 
   document.getElementById(
     "lectureSyntheseContenu"
-  ).innerHTML = "";
+  ).innerHTML =
+    "";
+
+
+  document.getElementById(
+    "lectureAssociationsContenu"
+  ).innerHTML =
+    "";
 
 }
 
@@ -1292,13 +1090,15 @@ function afficherLectureApprofondie() {
     false;
 
 
-  creerLectureAssociations();
+  /* On ne montre plus les associations mécaniques */
 
-  creerLectureEnergie();
+  document.getElementById(
+    "lectureAssociations"
+  ).hidden =
+    true;
 
-  creerLectureFamilleDominante();
 
-  creerSynthese();
+  creerLectureGlobale();
 
 
   setTimeout(
@@ -1317,296 +1117,145 @@ function afficherLectureApprofondie() {
 
 
 /* =========================================================
-   CRÉER LES ASSOCIATIONS ENTRE CARTES VOISINES
+   CONSTRUIRE LA LECTURE GLOBALE
 ========================================================= */
 
-function creerLectureAssociations() {
+function creerLectureGlobale() {
 
-  const contenu =
-    document.getElementById(
-      "lectureAssociationsContenu"
-    );
-
-
-  contenu.innerHTML = "";
-
-
-  for (
-    let i = 0;
-    i < cartesDuTirage.length - 1;
-    i++
-  ) {
-
-    const carteA =
-      cartesDuTirage[i];
-
-
-    const carteB =
-      cartesDuTirage[i + 1];
-
-
-    const infoA =
-      infosCartes[
-        carteA.numero
-      ];
-
-
-    const infoB =
-      infosCartes[
-        carteB.numero
-      ];
-
-
-    if (
-      !infoA
-      ||
-      !infoB
-    ) {
-
-      continue;
-
-    }
-
-
-    const bloc =
-      document.createElement(
-        "div"
+  const infos =
+    cartesDuTirage
+      .map(
+        carte =>
+          infosCartes[
+            carte.numero
+          ]
+      )
+      .filter(
+        Boolean
       );
-
-
-    bloc.className =
-      "association-carte";
-
-
-    const titre =
-      document.createElement(
-        "div"
-      );
-
-
-    titre.className =
-      "association-titre";
-
-
-    titre.textContent =
-      `${infoA.motCle} ✦ ${infoB.motCle}`;
-
-
-    const texte =
-      document.createElement(
-        "div"
-      );
-
-
-    texte.className =
-      "association-texte";
-
-
-    texte.textContent =
-      obtenirInterpretationAssociation(
-        carteA.numero,
-        carteB.numero
-      );
-
-
-    bloc.appendChild(
-      titre
-    );
-
-
-    bloc.appendChild(
-      texte
-    );
-
-
-    contenu.appendChild(
-      bloc
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   TROUVER L'INTERPRÉTATION DE DEUX CARTES
-========================================================= */
-
-function obtenirInterpretationAssociation(
-  numeroA,
-  numeroB
-) {
-
-  const cle =
-    creerClePaire(
-      numeroA,
-      numeroB
-    );
 
 
   if (
-    combinaisonsSpeciales[
-      cle
-    ]
+    infos.length === 0
   ) {
-
-    return combinaisonsSpeciales[
-      cle
-    ];
-
-  }
-
-
-  const infoA =
-    infosCartes[
-      numeroA
-    ];
-
-
-  const infoB =
-    infosCartes[
-      numeroB
-    ];
-
-
-  const cleFamilles =
-    creerCleFamilles(
-      infoA.famille,
-      infoB.famille
-    );
-
-
-  const lectureFamille =
-    associationsFamilles[
-      cleFamilles
-    ];
-
-
-  if (
-    lectureFamille
-  ) {
-
-    return (
-      `${infoA.motCle} associé à ${infoB.motCle}. `
-      + lectureFamille
-    );
-
-  }
-
-
-  return (
-    `${infoA.motCle} et ${infoB.motCle} se répondent dans ce tirage. `
-    + "Le sens de l’une nuance et complète celui de l’autre."
-  );
-
-}
-
-
-/* =========================================================
-   CLÉ D'UNE PAIRE DE CARTES
-========================================================= */
-
-function creerClePaire(
-  carteA,
-  carteB
-) {
-
-  return [
-    carteA,
-    carteB
-  ]
-    .sort()
-    .join("|");
-
-}
-
-
-/* =========================================================
-   CLÉ D'UNE PAIRE DE FAMILLES
-========================================================= */
-
-function creerCleFamilles(
-  familleA,
-  familleB
-) {
-
-  const ordre = [
-    "Forces",
-    "Liens",
-    "Mouvements",
-    "Signes",
-    "Ombres"
-  ];
-
-
-  return [
-    familleA,
-    familleB
-  ]
-    .sort(
-      (
-        a,
-        b
-      ) =>
-        ordre.indexOf(a)
-        -
-        ordre.indexOf(b)
-    )
-    .join("|");
-
-}
-
-
-/* =========================================================
-   ÉNERGIE GÉNÉRALE
-========================================================= */
-
-function creerLectureEnergie() {
-
-  const section =
-    document.getElementById(
-      "lectureEnergieGenerale"
-    );
-
-
-  const contenu =
-    document.getElementById(
-      "lectureEnergieContenu"
-    );
-
-
-  if (
-    cartesDuTirage.length < 3
-  ) {
-
-    section.hidden =
-      true;
 
     return;
 
   }
 
 
+  const compteFamilles =
+    compterFamilles(
+      infos
+    );
+
+
+  const motsCles =
+    infos.map(
+      info =>
+        info.motCle
+    );
+
+
   const premiere =
-    infosCartes[
-      cartesDuTirage[0].numero
-    ];
+    infos[0];
 
 
   const derniere =
-    infosCartes[
-      cartesDuTirage[
-        cartesDuTirage.length - 1
-      ].numero
+    infos[
+      infos.length - 1
     ];
 
 
-  contenu.textContent =
-    `Le tirage s’ouvre sur ${premiere.motCle} et se termine sur ${derniere.motCle}. `
-    + construireEvolutionGlobale(
+  const dominante =
+    trouverFamilleDominante(
+      compteFamilles
+    );
+
+
+  const texteGeneral =
+    construireClimatGeneral(
+      infos,
       premiere,
+      derniere,
+      dominante
+    );
+
+
+  const texteInfluences =
+    construireInfluences(
+      infos,
+      compteFamilles
+    );
+
+
+  const textePossibilites =
+    construirePossibilites(
+      infos,
+      motsCles
+    );
+
+
+  const texteDirection =
+    construireDirection(
+      infos,
       derniere
     );
+
+
+  afficherBlocLecture(
+    "lectureEnergieGenerale",
+    "lectureEnergieContenu",
+    texteGeneral
+  );
+
+
+  afficherBlocLecture(
+    "lectureFamilleDominante",
+    "lectureFamilleContenu",
+    texteInfluences
+  );
+
+
+  afficherBlocLecture(
+    "lectureSynthese",
+    "lectureSyntheseContenu",
+    textePossibilites
+    + "\n\n"
+    + texteDirection
+  );
+
+}
+
+
+/* =========================================================
+   AFFICHER UN BLOC DE LECTURE
+========================================================= */
+
+function afficherBlocLecture(
+  sectionId,
+  contenuId,
+  texte
+) {
+
+  const section =
+    document.getElementById(
+      sectionId
+    );
+
+
+  const contenu =
+    document.getElementById(
+      contenuId
+    );
+
+
+  contenu.textContent =
+    texte;
+
+
+  contenu.style.whiteSpace =
+    "pre-line";
 
 
   section.hidden =
@@ -1616,155 +1265,14 @@ function creerLectureEnergie() {
 
 
 /* =========================================================
-   ÉVOLUTION ENTRE PREMIÈRE ET DERNIÈRE CARTE
+   COMPTER LES FAMILLES
 ========================================================= */
 
-function construireEvolutionGlobale(
-  premiere,
-  derniere
+function compterFamilles(
+  infos
 ) {
 
-  if (
-    premiere.famille
-    === "Ombres"
-    &&
-    derniere.famille
-    === "Forces"
-  ) {
-
-    return "L’ensemble suggère un passage d’une difficulté ou d’une zone obscure vers davantage de ressources et de possibilités.";
-
-  }
-
-
-  if (
-    premiere.famille
-    === "Ombres"
-    &&
-    derniere.famille
-    === "Mouvements"
-  ) {
-
-    return "Une situation initialement complexe semble chercher une issue par le changement ou la mise en mouvement.";
-
-  }
-
-
-  if (
-    premiere.famille
-    === "Mouvements"
-    &&
-    derniere.famille
-    === "Forces"
-  ) {
-
-    return "Le changement engagé peut conduire vers une position plus solide ou plus favorable.";
-
-  }
-
-
-  if (
-    premiere.famille
-    === "Signes"
-    &&
-    derniere.famille
-    === "Mouvements"
-  ) {
-
-    return "Une information, une intuition ou un signe pourrait devenir le déclencheur d’une évolution concrète.";
-
-  }
-
-
-  if (
-    premiere.famille
-    === "Liens"
-    &&
-    derniere.famille
-    === "Forces"
-  ) {
-
-    return "Ce qui se joue dans les relations peut progressivement devenir une source de stabilité ou de progression.";
-
-  }
-
-
-  if (
-    derniere.famille
-    === "Ombres"
-  ) {
-
-    return "La conclusion reste prudente : une difficulté ou une zone encore mal comprise demande à être éclaircie.";
-
-  }
-
-
-  if (
-    derniere.famille
-    === "Signes"
-  ) {
-
-    return "La suite semble dépendre d’une information, d’un ressenti ou d’un signe qui n’est peut-être pas encore totalement visible.";
-
-  }
-
-
-  if (
-    derniere.famille
-    === "Liens"
-  ) {
-
-    return "L’issue du tirage accorde une importance particulière aux relations, aux sentiments ou aux engagements.";
-
-  }
-
-
-  if (
-    derniere.famille
-    === "Mouvements"
-  ) {
-
-    return "La situation paraît appelée à évoluer plutôt qu’à rester dans son état actuel.";
-
-  }
-
-
-  return "Le chemin décrit par les cartes semble conduire vers une capacité d’action, de construction ou d’évolution.";
-
-}
-
-
-/* =========================================================
-   FAMILLE DOMINANTE
-========================================================= */
-
-function creerLectureFamilleDominante() {
-
-  const section =
-    document.getElementById(
-      "lectureFamilleDominante"
-    );
-
-
-  const contenu =
-    document.getElementById(
-      "lectureFamilleContenu"
-    );
-
-
-  if (
-    cartesDuTirage.length < 3
-  ) {
-
-    section.hidden =
-      true;
-
-    return;
-
-  }
-
-
-  const compteurs = {
+  const compte = {
 
     Forces: 0,
     Liens: 0,
@@ -1775,24 +1283,16 @@ function creerLectureFamilleDominante() {
   };
 
 
-  cartesDuTirage.forEach(
-    carte => {
-
-      const info =
-        infosCartes[
-          carte.numero
-        ];
-
+  infos.forEach(
+    info => {
 
       if (
-        info
-        &&
-        compteurs[
+        compte[
           info.famille
         ] !== undefined
       ) {
 
-        compteurs[
+        compte[
           info.famille
         ]++;
 
@@ -1802,9 +1302,22 @@ function creerLectureFamilleDominante() {
   );
 
 
+  return compte;
+
+}
+
+
+/* =========================================================
+   FAMILLE DOMINANTE
+========================================================= */
+
+function trouverFamilleDominante(
+  compte
+) {
+
   const classement =
     Object.entries(
-      compteurs
+      compte
     )
       .sort(
         (
@@ -1815,158 +1328,413 @@ function creerLectureFamilleDominante() {
       );
 
 
-  const meilleureFamille =
-    classement[0];
-
-
-  const secondeFamille =
-    classement[1];
-
-
   if (
-    meilleureFamille[1] === 0
+    classement.length < 2
   ) {
 
-    section.hidden =
-      true;
-
-    return;
+    return null;
 
   }
 
 
   if (
-    meilleureFamille[1]
-    === secondeFamille[1]
+    classement[0][1]
+    === classement[1][1]
   ) {
 
-    contenu.textContent =
-      "Aucune famille ne domine nettement ce tirage. Plusieurs influences se répondent et demandent à être lues ensemble.";
-
-    section.hidden =
-      false;
-
-    return;
+    return null;
 
   }
 
 
-  const nomFamille =
-    meilleureFamille[0];
-
-
-  contenu.textContent =
-    textesFamillesDominantes[
-      nomFamille
-    ];
-
-
-  section.hidden =
-    false;
+  return classement[0][0];
 
 }
 
 
 /* =========================================================
-   SYNTHÈSE
+   CLIMAT GÉNÉRAL
 ========================================================= */
 
-function creerSynthese() {
+function construireClimatGeneral(
+  infos,
+  premiere,
+  derniere,
+  dominante
+) {
 
-  const section =
-    document.getElementById(
-      "lectureSynthese"
-    );
-
-
-  const contenu =
-    document.getElementById(
-      "lectureSyntheseContenu"
-    );
+  let texte =
+    "Votre tirage semble décrire une situation qui n’est pas totalement figée. ";
 
 
   if (
-    cartesDuTirage.length < 3
+    premiere.famille
+    === "Ombres"
   ) {
 
-    section.hidden =
-      true;
-
-    return;
-
-  }
-
-
-  const premiereCarte =
-    infosCartes[
-      cartesDuTirage[0].numero
-    ];
-
-
-  const derniereCarte =
-    infosCartes[
-      cartesDuTirage[
-        cartesDuTirage.length - 1
-      ].numero
-    ];
-
-
-  const obstacles =
-    cartesDuTirage.filter(
-      carte =>
-        infosCartes[
-          carte.numero
-        ].famille
-        === "Ombres"
-    ).length;
-
-
-  const forces =
-    cartesDuTirage.filter(
-      carte =>
-        infosCartes[
-          carte.numero
-        ].famille
-        === "Forces"
-    ).length;
-
-
-  let conclusion =
-    `Le tirage part de ${premiereCarte.motCle} et conduit vers ${derniereCarte.motCle}. `;
-
-
-  if (
-    obstacles > forces
-  ) {
-
-    conclusion +=
-      "Plusieurs éléments demandent encore à être compris, débloqués ou clarifiés avant que la situation puisse évoluer pleinement.";
+    texte +=
+      "Le point de départ paraît marqué par une hésitation, une difficulté, une tension ou un élément encore mal compris. ";
 
   }
 
   else if (
-    forces > obstacles
+    premiere.famille
+    === "Mouvements"
   ) {
 
-    conclusion +=
-      "Les ressources favorables sont bien présentes et semblent pouvoir soutenir l’évolution de la situation.";
+    texte +=
+      "Quelque chose semble déjà en train de bouger, de changer ou de chercher une nouvelle direction. ";
+
+  }
+
+  else if (
+    premiere.famille
+    === "Liens"
+  ) {
+
+    texte +=
+      "La situation paraît fortement influencée par une relation, un attachement, une personne ou un engagement. ";
+
+  }
+
+  else if (
+    premiere.famille
+    === "Signes"
+  ) {
+
+    texte +=
+      "Le tirage commence par une notion d’information, d’intuition ou de détail à observer attentivement. ";
 
   }
 
   else {
 
-    conclusion +=
-      "Le tirage montre un équilibre entre possibilités et résistances : la façon dont la situation sera abordée peut faire une réelle différence.";
+    texte +=
+      "Le point de départ montre déjà des ressources ou un potentiel capables de faire évoluer la situation. ";
 
   }
 
 
-  contenu.textContent =
-    conclusion;
+  if (
+    dominante === "Ombres"
+  ) {
+
+    texte +=
+      "Plusieurs cartes suggèrent cependant que tout n’est pas encore clair. Certaines informations peuvent manquer, une peur peut influencer les choix, ou un obstacle peut avoir plus d’importance qu’il n’y paraît.";
+
+  }
+
+  else if (
+    dominante === "Mouvements"
+  ) {
+
+    texte +=
+      "L’ensemble insiste surtout sur l’évolution. Une décision, un déplacement, un changement de position ou simplement une nouvelle manière d’aborder les choses peut modifier sensiblement la suite.";
+
+  }
+
+  else if (
+    dominante === "Liens"
+  ) {
+
+    texte +=
+      "Les relations occupent une place importante. La suite peut dépendre de la qualité des échanges, de la confiance, d’un rapprochement ou au contraire de la nécessité de redéfinir certains liens.";
+
+  }
+
+  else if (
+    dominante === "Signes"
+  ) {
+
+    texte +=
+      "Le tirage invite particulièrement à observer les informations qui arrivent, les paroles entendues, les répétitions, les intuitions ou les événements qui semblent tomber au bon moment.";
+
+  }
+
+  else if (
+    dominante === "Forces"
+  ) {
+
+    texte +=
+      "La tendance générale paraît plutôt constructive. Il existe des ressources, une possibilité de progression ou une capacité à reprendre la main sur la situation.";
+
+  }
+
+  else {
+
+    texte +=
+      "Aucune influence ne domine complètement : plusieurs aspects semblent se mélanger, ce qui peut indiquer une situation encore ouverte à différentes évolutions.";
+
+  }
 
 
-  section.hidden =
-    false;
+  return texte;
+
+}
+
+
+/* =========================================================
+   CE QUI PEUT INFLUENCER LA SITUATION
+========================================================= */
+
+function construireInfluences(
+  infos,
+  compte
+) {
+
+  let texte =
+    "Plusieurs éléments peuvent modifier l’évolution de la situation. ";
+
+
+  if (
+    compte.Ombres > 0
+  ) {
+
+    texte +=
+      "Il existe au moins une zone de prudence : doute, blocage, confusion, peur, tension ou élément caché. Cela ne signifie pas nécessairement une issue négative, mais plutôt qu’il serait utile d’éviter les décisions trop rapides. ";
+
+  }
+
+
+  if (
+    compte.Signes > 0
+  ) {
+
+    texte +=
+      "Des informations peuvent apparaître progressivement. Une conversation, un message, une intuition ou un détail apparemment secondaire pourrait aider à mieux comprendre ce qui se joue. ";
+
+  }
+
+
+  if (
+    compte.Liens > 0
+  ) {
+
+    texte +=
+      "Une autre personne peut également avoir une influence réelle. Selon votre question, cela peut concerner un partenaire, un proche, un collègue, la famille ou quelqu’un dont l’avis ou la présence compte davantage que prévu. ";
+
+  }
+
+
+  if (
+    compte.Mouvements > 0
+  ) {
+
+    texte +=
+      "Le facteur temps semble important : la situation peut évoluer, et ce qui paraît vrai aujourd’hui pourrait être différent après une décision ou un événement prochain. ";
+
+  }
+
+
+  if (
+    compte.Forces > 0
+  ) {
+
+    texte +=
+      "Enfin, certaines cartes montrent que vous disposez probablement de davantage de ressources ou de possibilités que vous ne le pensez actuellement.";
+
+  }
+
+
+  return texte;
+
+}
+
+
+/* =========================================================
+   POSSIBILITÉS SELON LA NATURE DE LA QUESTION
+========================================================= */
+
+function construirePossibilites(
+  infos,
+  motsCles
+) {
+
+  const aLien =
+    infos.some(
+      info =>
+        info.famille
+        === "Liens"
+    );
+
+
+  const aMouvement =
+    infos.some(
+      info =>
+        info.famille
+        === "Mouvements"
+    );
+
+
+  const aOmbre =
+    infos.some(
+      info =>
+        info.famille
+        === "Ombres"
+    );
+
+
+  const aForce =
+    infos.some(
+      info =>
+        info.famille
+        === "Forces"
+    );
+
+
+  const aSigne =
+    infos.some(
+      info =>
+        info.famille
+        === "Signes"
+    );
+
+
+  let texte =
+    "Plusieurs lectures restent possibles selon la situation à laquelle vous pensiez.\n\n";
+
+
+  /* RELATIONNEL */
+
+  if (
+    aLien
+  ) {
+
+    texte +=
+      "Si votre question concerne une relation, ce tirage peut parler d’un lien qui évolue, d’un rapprochement possible, d’un besoin de clarification ou d’un changement dans la manière dont chacun se positionne. ";
+
+    if (
+      aOmbre
+    ) {
+
+      texte +=
+        "Il peut aussi exister un non-dit, une hésitation, une blessure ou une difficulté qui empêche encore la relation de trouver son équilibre. ";
+
+    }
+
+    if (
+      aForce
+    ) {
+
+      texte +=
+        "Malgré cela, certaines cartes laissent entendre qu’un terrain plus constructif peut se créer si les échanges deviennent plus clairs.";
+
+    }
+
+    texte +=
+      "\n\n";
+
+  }
+
+
+  /* TRAVAIL / PROJET */
+
+  if (
+    aMouvement
+    ||
+    aForce
+  ) {
+
+    texte +=
+      "Si votre question concerne le travail, un projet ou une décision personnelle, le tirage peut indiquer qu’une évolution est possible mais qu’elle demande probablement une prise de position concrète. ";
+
+    if (
+      aSigne
+    ) {
+
+      texte +=
+        "Une information, une proposition, une réponse ou une opportunité peut jouer le rôle de déclencheur. ";
+
+    }
+
+    if (
+      aOmbre
+    ) {
+
+      texte +=
+        "Il peut toutefois être utile de vérifier les détails avant de vous engager, surtout si une partie de la situation reste incertaine.";
+
+    }
+
+    texte +=
+      "\n\n";
+
+  }
+
+
+  /* SITUATION PERSONNELLE */
+
+  texte +=
+    "Si votre question est plus personnelle, ce tirage peut simplement refléter une période où quelque chose cherche à se réorganiser. Il ne s’agit pas forcément d’un événement spectaculaire : cela peut être une prise de conscience, un changement de priorité, une envie nouvelle ou le besoin de laisser derrière vous quelque chose qui ne correspond plus à la suite.";
+
+
+  return texte;
+
+}
+
+
+/* =========================================================
+   DIRECTION À PRIVILÉGIER
+========================================================= */
+
+function construireDirection(
+  infos,
+  derniere
+) {
+
+  let texte =
+    "Direction suggérée : ";
+
+
+  if (
+    derniere.famille
+    === "Forces"
+  ) {
+
+    texte +=
+      "la fin du tirage est plutôt encourageante. Elle invite à vous appuyer sur ce qui fonctionne déjà, à renforcer vos ressources et à avancer progressivement plutôt que d’attendre une certitude absolue.";
+
+  }
+
+  else if (
+    derniere.famille
+    === "Mouvements"
+  ) {
+
+    texte +=
+      "la situation semble demander du mouvement. Une décision, un changement de méthode ou simplement le fait de ne plus rester dans l’attente pourrait permettre de débloquer la suite.";
+
+  }
+
+  else if (
+    derniere.famille
+    === "Liens"
+  ) {
+
+    texte +=
+      "la suite semble passer par les relations. Parler, écouter, clarifier les attentes ou observer la qualité réelle du lien peut être plus utile que chercher immédiatement une réponse définitive.";
+
+  }
+
+  else if (
+    derniere.famille
+    === "Signes"
+  ) {
+
+    texte +=
+      "il semble préférable d’observer encore un peu avant de conclure. Une information supplémentaire, un échange ou un ressenti plus net pourrait préciser la direction.";
+
+  }
+
+  else {
+
+    texte +=
+      "la prudence reste utile. Quelque chose mérite probablement d’être compris, clarifié ou libéré avant de prendre une décision importante. Le tirage n’indique pas forcément une impasse, mais plutôt une étape intermédiaire.";
+
+  }
+
+
+  return texte;
 
 }
 
@@ -1990,23 +1758,15 @@ function nouveauTirage() {
 
 function retourAccueil() {
 
-  const accueil =
-    document.getElementById(
-      "accueil"
-    );
-
-
-  const zoneTirage =
-    document.getElementById(
-      "zoneTirage"
-    );
-
-
-  accueil.hidden =
+  document.getElementById(
+    "accueil"
+  ).hidden =
     false;
 
 
-  zoneTirage.hidden =
+  document.getElementById(
+    "zoneTirage"
+  ).hidden =
     true;
 
 
