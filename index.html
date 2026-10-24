@@ -19,33 +19,26 @@
     Voyance Prométhée
   </title>
 
-
   <!-- ICÔNE IPHONE / IPAD -->
-
   <link
     rel="apple-touch-icon"
     href="images/Icone-app.PNG"
   >
 
-
   <!-- ICÔNE NAVIGATEUR -->
-
   <link
     rel="icon"
     type="image/png"
     href="images/Icone-app.PNG"
   >
 
-
   <!-- STYLE -->
-
   <link
     rel="stylesheet"
     href="style.css"
   >
 
 </head>
-
 
 
 <body>
@@ -60,21 +53,16 @@
     id="accueil"
   >
 
-
     <h1>
       VOYANCE PROMÉTHÉE
     </h1>
-
 
     <p class="sous-titre">
       Choisis ton tirage
     </p>
 
 
-
-    <!-- ===================================================
-         TIRAGE 1 CARTE
-    ==================================================== -->
+    <!-- TIRAGE 1 CARTE -->
 
     <button
       class="bouton-tirage"
@@ -93,10 +81,7 @@
     </button>
 
 
-
-    <!-- ===================================================
-         TIRAGE 3 CARTES
-    ==================================================== -->
+    <!-- TIRAGE 3 CARTES -->
 
     <button
       class="bouton-tirage"
@@ -115,10 +100,7 @@
     </button>
 
 
-
-    <!-- ===================================================
-         TIRAGE 5 CARTES
-    ==================================================== -->
+    <!-- TIRAGE 5 CARTES -->
 
     <button
       class="bouton-tirage"
@@ -137,10 +119,7 @@
     </button>
 
 
-
-    <!-- ===================================================
-         TIRAGE 7 CARTES
-    ==================================================== -->
+    <!-- TIRAGE 7 CARTES -->
 
     <button
       class="bouton-tirage"
@@ -158,9 +137,7 @@
 
     </button>
 
-
   </main>
-
 
 
   <!-- =====================================================
@@ -172,9 +149,6 @@
     id="zoneTirage"
     hidden
   >
-
-
-    <!-- TITRE -->
 
     <header class="entete-tirage">
 
@@ -190,10 +164,7 @@
     </header>
 
 
-
-    <!-- ===================================================
-         CARTES
-    ==================================================== -->
+    <!-- CARTES -->
 
     <div
       class="cartes-tirage"
@@ -202,20 +173,14 @@
     </div>
 
 
-
     <!-- ===================================================
          LECTURE APPROFONDIE
-         Le bouton sera affiché automatiquement
-         lorsque toutes les cartes seront retournées.
     ==================================================== -->
 
     <section
       class="lecture-approfondie"
       id="lectureApprofondie"
     >
-
-
-      <!-- BOUTON -->
 
       <button
         class="bouton-lecture"
@@ -227,17 +192,11 @@
       </button>
 
 
-
-      <!-- =================================================
-           RÉSULTAT DE LA LECTURE APPROFONDIE
-      ================================================== -->
-
       <div
         class="lecture-resultat"
         id="lectureApprofondieZone"
         hidden
       >
-
 
         <div class="lecture-entete">
 
@@ -257,11 +216,7 @@
         </div>
 
 
-
-        <!-- ===============================================
-             ÉNERGIE GÉNÉRALE
-             Prévu pour plus tard
-        ================================================ -->
+        <!-- ÉNERGIE GÉNÉRALE -->
 
         <section
           class="lecture-section"
@@ -282,10 +237,7 @@
         </section>
 
 
-
-        <!-- ===============================================
-             ASSOCIATIONS ENTRE CARTES
-        ================================================ -->
+        <!-- ASSOCIATIONS -->
 
         <section
           class="lecture-section"
@@ -305,11 +257,7 @@
         </section>
 
 
-
-        <!-- ===============================================
-             FAMILLE DOMINANTE
-             Prévu pour plus tard
-        ================================================ -->
+        <!-- FAMILLE DOMINANTE -->
 
         <section
           class="lecture-section"
@@ -330,11 +278,7 @@
         </section>
 
 
-
-        <!-- ===============================================
-             SYNTHÈSE DU TIRAGE
-             Prévu pour plus tard
-        ================================================ -->
+        <!-- SYNTHÈSE -->
 
         <section
           class="lecture-section lecture-synthese"
@@ -354,11 +298,9 @@
 
         </section>
 
-
       </div>
 
     </section>
-
 
 
     <!-- ===================================================
@@ -366,9 +308,6 @@
     ==================================================== -->
 
     <div class="actions-tirage">
-
-
-      <!-- NOUVEAU TIRAGE -->
 
       <button
         class="bouton-action bouton-nouveau"
@@ -378,10 +317,6 @@
         🔄 Nouveau tirage
       </button>
 
-
-
-      <!-- RETOUR ACCUEIL -->
-
       <button
         class="bouton-action bouton-retour"
         id="retourAccueilBtn"
@@ -390,12 +325,9 @@
         ← Retour
       </button>
 
-
     </div>
 
-
   </section>
-
 
 
   <!-- =====================================================
@@ -404,786 +336,6 @@
 
   <script src="script.js"></script>
 
-
 </body>
 
-</html>
-  <div class="accueil">
-
-    <h1> VOYANCE PROMÉTHÉE</h1>
-
-    <div class="sous-titre">
-      Choisis ton tirage
-    </div>
-
-
-    <button class="bouton-tirage" onclick="ouvrirTirage(1)">
-  <div class="nom-tirage">
-    ⚡ TIRAGE ÉCLAIR
-  </div>
-
-  <div class="description">
-    1 carte — Une réponse immédiate
-  </div>
-</button>
-
-
-<button class="bouton-tirage" onclick="ouvrirTirage(3)">
-  <div class="nom-tirage">
-    ✨ TIRAGE CLAIR
-  </div>
-
-  <div class="description">
-    3 cartes — Comprendre la situation
-  </div>
-</button>
-
-
-<button class="bouton-tirage" onclick="ouvrirTirage(5)">
-  <div class="nom-tirage">
-    🌙 TIRAGE PROFOND
-  </div>
-
-  <div class="description">
-    5 cartes — Explorer ce qui agit autour de toi
-  </div>
-</button>
-
-
-<button class="bouton-tirage" onclick="ouvrirTirage(7)">
-  <div class="nom-tirage">
-    🌌 GRAND TIRAGE
-  </div>
-
-  <div class="description">
-    7 cartes — Une lecture complète
-  </div>
-</button>
-
-  </div>
-
-<div id="zoneTirage" style="display:none; width:92%; max-width:1100px; margin:auto; padding:30px 20px; text-align:center;">
-
-  <h2 id="titreTirage"></h2>
-
-  <div id="descriptionTirage" style="margin-bottom:30px; color:rgba(230,235,255,0.85);"></div>
-
-  <div id="cartesTirage"
-     style="
-       display:flex;
-       flex-wrap:wrap;
-       justify-content:center;
-       align-items:flex-start;
-       column-gap:18px;
-       row-gap:28px;
-     ">
-</div>
-<button onclick="nouveauTirage()"
-        style="
-          margin-top:35px;
-          margin-right:10px;
-          padding:14px 24px;
-          border:none;
-          border-radius:16px;
-          background:rgba(86,160,220,0.55);
-          color:white;
-          font-size:16px;
-          cursor:pointer;
-        ">
-  🔄 Nouveau tirage
-</button>
-  <button onclick="retourAccueil()"
-          style="
-            margin-top:50px;
-            padding:14px 24px;
-            border:none;
-            border-radius:16px;
-            background:rgba(116,82,210,0.55);
-            color:white;
-            font-size:16px;
-            cursor:pointer;
-          ">
-    ← Retour
-  </button>
-
-</div>
-
-<script>
-let dernierNombreCartes = 1;
-function ouvrirTirage(nombreCartes) {
-
-  dernierNombreCartes = nombreCartes;
-const infosCartes = {
-
-  "V-01": {
-    
-    texte: "Une direction se dessine. Cette carte invite à choisir un cap ou à retrouver celui qui te convient vraiment."
-  },
-
-  "V-02": {
-    
-    texte: "Une impulsion arrive et peut accélérer la situation. Quelque chose se met en mouvement rapidement."
-  },
-
-  "V-03": {
-    
-    texte: "Une idée, une envie ou une vision nouvelle peut devenir une véritable force pour avancer."
-  },
-
-  "V-04": {
-    
-    texte: "Un lien important influence la situation. Il peut unir, retenir ou rappeler ce qui compte vraiment."
-  },
-
-  "V-05": {
-    
-    texte: "Une transition est en cours. Quelque chose peut être laissé derrière pour entrer dans une nouvelle étape."
-  },
-
-  "V-06": {
-    
-    texte: "Un changement puissant peut modifier rapidement l’équilibre actuel et ouvrir une direction inattendue."
-  },
-
-  "V-07": {
-    
-    texte: "La situation manque de clarté et plusieurs directions peuvent compliquer ou ralentir la décision."
-  },
-
-  "V-08": {
-    
-    texte: "Un lien sincère, une présence amicale ou un soutien proche peut jouer un rôle important."
-  },
-
-  "V-09": {
-    
-    texte: "Une information ou une vérité peut apparaître et éclairer ce qui était jusque-là difficile à comprendre."
-  },
-
-  "V-10": {
-    
-    texte: "Une énergie dynamique pousse la situation à évoluer. L’immobilité n’est plus vraiment possible."
-  },
-
-  "V-11": {
-    
-    texte: "Une personne, un lien ou une présence fiable peut apporter protection, aide ou stabilité."
-  },
-
-  "V-12": {
-    
-    texte: "Une coïncidence ou un détail inattendu peut avoir du sens et orienter subtilement la suite."
-  },
-
-  "V-13": {
-    
-    texte: "Tout n’a pas besoin d’être compris immédiatement. Une part d’inconnu peut contenir un potentiel encore caché."
-  },
-
-  "V-14": {
-    
-    texte: "Un signe ou une compréhension nouvelle permet de voir la situation avec davantage de précision."
-  },
-
-  "V-15": {
-    
-    texte: "Un retour sur le passé peut être nécessaire pour comprendre ce qui doit maintenant évoluer."
-  },
-
-  "V-16": {
-    
-    texte: "Ton intuition capte quelque chose avant que les faits soient complètement visibles."
-  },
-
-  "V-17": {
-   
-    texte: "Un événement, une parole ou un détail vient confirmer une impression déjà présente."
-  },
-
-  "V-18": {
-    
-    texte: "La situation peut progresser vers un niveau supérieur, à condition d’accepter l’effort ou l’évolution nécessaire."
-  },
-
-  "V-19": {
-    
-    texte: "Une distance peut diminuer et un lien peut se reconstruire, se renforcer ou devenir plus fluide."
-  },
-
-  "V-20": {
-    
-    texte: "Les sentiments, l’affection ou un lien émotionnel fort occupent une place centrale dans la situation."
-  },
-
-  "V-21": {
-    
-    texte: "Une évolution arrive. Il peut être plus utile d’accompagner le mouvement que de chercher à le retenir."
-  },
-
-  "V-22": {
-  
-    texte: "Une parole, une information ou un détail peut contenir une indication importante pour la suite."
-  },
-
-  "V-23": {
-    
-    texte: "Plusieurs petits éléments commencent à former un ensemble cohérent. Observe ce qui se répète."
-  },
-
-  "V-24": {
-    
-    texte: "Une responsabilité, une pression ou un poids devient trop présent et mérite d’être regardé autrement."
-  },
-
-  "V-25": {
-    
-    texte: "Un lien subtil unit des personnes, des événements ou des intentions et peut devenir plus important qu’il n’y paraît."
-  },
-
-  "V-26": {
-    
-    texte: "Les sentiments, les efforts ou les intentions peuvent être partagés et circuler dans les deux sens."
-  },
-
-  "V-27": {
-    
-    texte: "Une partie de la situation reste cachée ou difficile à lire. Mieux vaut éviter les conclusions trop rapides."
-  },
-
-  "V-28": {
-    
-    texte: "L’entente, l’équilibre et la compréhension mutuelle peuvent favoriser une évolution plus douce."
-  },
-
-  "V-29": {
-    
-    texte: "Une vérité cachée, un mécanisme ou une connexion complexe peut progressivement apparaître."
-  },
-
-  "V-30": {
-    
-    texte: "Une nouvelle énergie permet de repartir, de se régénérer ou d’aborder la situation autrement."
-  },
-  
-
-"V-31": {
-  
-  texte: "Une étape se termine tandis qu’une autre commence. La situation est en train de changer de forme."
-},
-
-"V-32": {
-  
-  texte: "Une opposition ou une tension perturbe l’équilibre. Quelque chose demande à être confronté ou clarifié."
-},
-
-"V-33": {
-  
-  texte: "Un choix devient nécessaire pour permettre à la situation d’avancer dans une direction plus précise."
-},
-
-"V-34": {
-  
-  texte: "Une douleur ancienne ou récente influence encore la situation et peut demander attention ou réparation."
-},
-
-"V-35": {
-  
-  texte: "Un lien existe, mais il peut être complexe, caché, pesant ou difficile à comprendre clairement."
-},
-
-"V-36": {
-  
-  texte: "La situation possède les ressources nécessaires pour progresser et se transformer positivement."
-},
-
-"V-37": {
-  
-  texte: "La capacité à comprendre, décider et voir l’essentiel devient une force importante dans cette situation."
-},
-
-"V-38": {
-  
-  texte: "Quelque chose peut devenir plus simple ou plus fluide. Il est peut-être temps de relâcher ce qui alourdit."
-},
-
-"V-39": {
-  
-  texte: "Une possibilité intéressante peut se présenter. Reste attentif aux ouvertures, même discrètes."
-},
-
-"V-40": {
-  
-  texte: "Quelque chose est retenu, contenu ou difficile à libérer. Cette immobilisation peut freiner l’évolution."
-},
-
-"V-41": {
-  
-  texte: "Ce qui a été commencé possède un potentiel de développement. Patience et constance peuvent porter leurs fruits."
-},
-
-"V-42": {
-  
-  texte: "Un obstacle empêche actuellement la situation d’avancer normalement et demande à être identifié."
-},
-
-"V-43": {
-  
-  texte: "Une indication importante peut venir d’une parole, d’un ressenti ou de quelque chose que tu n’écoutais pas encore."
-},
-
-"V-44": {
-  
-  texte: "Une voie commence à se dessiner. Il devient possible de savoir vers quoi avancer."
-},
-
-"V-45": {
- 
-  texte: "Les liens familiaux, les racines ou le sentiment d’appartenance occupent une place importante dans la situation."
-},
-
-"V-46": {
-  
-  texte: "Une situation peut atteindre une forme plus accomplie, plus heureuse ou plus conforme à ce que tu recherches."
-},
-
-"V-47": {
-  
-  texte: "Une relation ou un échange mérite d’être observé avec recul afin de mieux comprendre ce qui vous relie."
-},
-
-"V-48": {
-  
-  texte: "Un indice peut montrer comment résoudre la situation. La réponse est peut-être déjà plus proche qu’elle n’en a l’air."
-},
-
-"V-49": {
-  
-  texte: "Une réserve de volonté, de vitalité ou de détermination peut être mobilisée pour faire avancer la situation."
-},
-
-"V-50": {
-  
-  texte: "Les informations ou les émotions se mélangent et rendent la situation difficile à lire avec précision."
-},
-
-"V-51": {
-  
-  texte: "Une nouvelle possibilité possède l’énergie nécessaire pour prendre naissance et se développer."
-},
-
-"V-52": {
-  
-  texte: "Un ressenti intérieur peut contenir une information importante, même si tu ne peux pas encore l’expliquer."
-},
-
-"V-53": {
-  
-  texte: "Des bases solides permettent de sécuriser la situation et de construire avec davantage de confiance."
-},
-
-"V-54": {
-  
-  texte: "Un rapprochement ou un lien significatif se crée ou se renforce entre des personnes, des intentions ou des situations."
-},
-
-"V-55": {
- 
-  texte: "Quelque chose quitte son point d’origine. Un nouveau trajet, une séparation ou une nouvelle aventure peut commencer."
-},
-
-"V-56": {
-  
-  texte: "Une séparation ou une cassure remet en question une situation qui ne peut plus continuer exactement comme avant."
-},
-
-"V-57": {
-  
-  texte: "Les conditions peuvent permettre d’atteindre un objectif ou de voir les efforts engagés porter leurs fruits."
-},
-
-"V-58": {
-  
-  texte: "Quelque chose cherche à attirer ton attention. Une invitation, un besoin ou une direction mérite d’être entendue."
-},
-
-"V-59": {
-  
-  texte: "Une possibilité de retrouver davantage d’autonomie, d’espace ou de choix devient accessible."
-},
-
-"V-60": {
-  
-  texte: "Un lien demande de prendre position, de s’investir ou de donner une forme plus concrète à une relation."
-}
-
-
-
-
-
-  
-};
-  const accueil = document.querySelector(".accueil");
-  const zoneTirage = document.getElementById("zoneTirage");
-  const titre = document.getElementById("titreTirage");
-  const description = document.getElementById("descriptionTirage");
-  const zoneCartes = document.getElementById("cartesTirage");
-
-  accueil.style.display = "none";
-  zoneTirage.style.display = "block";
-
-  zoneCartes.innerHTML = "";
-
-
-  if (nombreCartes === 1) {
-    titre.textContent = "⚡ Tirage Éclair";
-    description.textContent = "Choisis une carte.";
-  }
-
-  if (nombreCartes === 3) {
-    titre.textContent = "✨ Tirage Clair";
-    description.textContent = "Choisis 3 cartes.";
-  }
-
-  if (nombreCartes === 5) {
-    titre.textContent = "🌙 Tirage Profond";
-    description.textContent = "Choisis 5 cartes.";
-  }
-
-  if (nombreCartes === 7) {
-    titre.textContent = "🌌 Grand Tirage";
-    description.textContent = "Choisis 7 cartes.";
-  }
-
-
-  // =========================
-  // CRÉATION DU PAQUET
-  // =========================
-
-  const paquet = [];
-
-  for (let i = 1; i <= 60; i++) {
-
-    const numero = String(i).padStart(2, "0");
-
-    paquet.push(
-      "images/Cartes/V-" + numero + ".PNG"
-    );
-  }
-
-
-  // =========================
-  // MÉLANGE
-  // =========================
-
-  for (let i = paquet.length - 1; i > 0; i--) {
-
-    const j = Math.floor(Math.random() * (i + 1));
-
-    const temporaire = paquet[i];
-
-    paquet[i] = paquet[j];
-    paquet[j] = temporaire;
-  }
-
-
-  // On prend le nombre de cartes nécessaire
-
-  const cartesChoisies =
-    paquet.slice(0, nombreCartes);
-let roles = [];
-
-if (nombreCartes === 1) {
-  roles = [
-    "Réponse / énergie principale"
-  ];
-}
-
-if (nombreCartes === 3) {
-  roles = [
-    "Situation actuelle",
-    "Influence ou obstacle",
-    "Évolution"
-  ];
-}
-
-if (nombreCartes === 5) {
-  roles = [
-    "Situation actuelle",
-    "Ce qui agit en ta faveur",
-    "Ombre ou blocage",
-    "Mouvement à venir",
-    "Direction ou conseil"
-  ];
-}
-
-if (nombreCartes === 7) {
-  roles = [
-    "Passé récent",
-    "Présent",
-    "Influence cachée",
-    "Obstacle principal",
-    "Ce qui évolue",
-    "Conseil",
-    "Issue probable"
-  ];
-}
-
-  // =========================
-  // CRÉATION DES CARTES
-  // =========================
-
-cartesChoisies.forEach(function(imageCarte, index) {
-
-
-    // CONTENEUR
-
-    const container =
-      document.createElement("div");
-
-  container.style.width = "140px";
-container.style.minHeight = "285px";
-container.style.height = "auto";
-
-container.style.position = "relative";
-container.style.perspective = "1000px";
-
-container.style.flex = "0 0 140px";
-
-container.style.display = "flex";
-container.style.flexDirection = "column";
-container.style.alignItems = "center";
-
-container.style.marginBottom = "12px";
-
-
-    // CARTE QUI TOURNE
-
-    const flip =
-      document.createElement("div");
-
-    flip.style.position = "relative";
-
-    flip.style.width = "140px";
-flip.style.height = "210px";
-flip.style.flexShrink = "0";
-
-    flip.style.transformStyle =
-      "preserve-3d";
-
-    flip.style.webkitTransformStyle =
-      "preserve-3d";
-
-    flip.style.transform =
-      "rotateY(0deg)";
-
-    flip.style.webkitTransform =
-      "rotateY(0deg)";
-
-    flip.style.transformOrigin =
-      "50% 50%";
-
-    flip.style.transition =
-      "transform 0.7s ease";
-
-    flip.style.webkitTransition =
-      "-webkit-transform 0.7s ease";
-
-    flip.style.cursor = "pointer";
-
-
-    // =========================
-    // DOS
-    // =========================
-
-    const dos =
-      document.createElement("img");
-
-    dos.src = "images/V-Dos.PNG";
-
-    dos.style.position = "absolute";
-
-    dos.style.top = "0";
-    dos.style.left = "0";
-    dos.style.right = "0";
-    dos.style.bottom = "0";
-
-    dos.style.width = "100%";
-    dos.style.height = "100%";
-
-    dos.style.objectFit = "cover";
-
-    dos.style.borderRadius = "14px";
-
-    dos.style.backfaceVisibility =
-      "hidden";
-
-    dos.style.webkitBackfaceVisibility =
-      "hidden";
-
-    dos.style.transform =
-      "rotateY(0deg)";
-
-    dos.style.webkitTransform =
-      "rotateY(0deg)";
-
-    dos.style.boxShadow =
-      "0 0 20px rgba(120,180,255,0.28)";
-
-
-    // =========================
-    // RECTO
-    // =========================
-
-    const recto =
-      document.createElement("img");
-
-    recto.src = imageCarte;
-
-    recto.style.position = "absolute";
-
-    recto.style.top = "0";
-    recto.style.left = "0";
-    recto.style.right = "0";
-    recto.style.bottom = "0";
-
-    recto.style.width = "100%";
-    recto.style.height = "100%";
-
-    recto.style.objectFit = "cover";
-
-    recto.style.borderRadius = "14px";
-
-    recto.style.backfaceVisibility =
-      "hidden";
-
-    recto.style.webkitBackfaceVisibility =
-      "hidden";
-
-    recto.style.transform =
-      "rotateY(180deg)";
-
-    recto.style.webkitTransform =
-      "rotateY(180deg)";
-
-    recto.style.boxShadow =
-      "0 0 24px rgba(150,110,255,0.38)";
-
-
-    // =========================
-    // ASSEMBLAGE
-    // =========================
-
-    flip.appendChild(dos);
-
-    flip.appendChild(recto);
-
-    container.appendChild(flip);
-const role = document.createElement("div");
-
-role.textContent = roles[index];
-
-role.style.marginTop = "14px";
-
-role.style.width = "140px";
-role.style.minHeight = "48px";
-
-role.style.fontSize = "14px";
-role.style.fontWeight = "bold";
-
-role.style.color =
-  "rgba(230, 235, 255, 0.92)";
-
-role.style.textAlign = "center";
-role.style.lineHeight = "1.35";
-
-role.style.display = "flex";
-role.style.alignItems = "flex-start";
-role.style.justifyContent = "center";
-
-role.style.padding = "0 4px";
-role.style.textShadow =
-  "0 0 8px rgba(130, 190, 255, 0.35)";
-
-container.appendChild(role);
-  const interpretation = document.createElement("div");
-
-interpretation.style.display = "none";
-interpretation.style.marginTop = "3px";
-interpretation.style.width = "140px";
-interpretation.style.textAlign = "center";
-interpretation.style.lineHeight = "1.35";
-interpretation.style.position = "relative";
-interpretation.style.zIndex = "1";
-interpretation.style.paddingBottom = "10px";
-container.appendChild(interpretation);
-    zoneCartes.appendChild(container);
-
-
-    // =========================
-    // RETOURNEMENT
-    // =========================
-
-    let retournee = false;
-
-
-    flip.addEventListener(
-      "click",
-      function() {
-
-        if (retournee) {
-          return;
-        }
-
-        flip.style.transform =
-          "rotateY(180deg)";
-
-        flip.style.webkitTransform =
-          "rotateY(180deg)";
-const nomFichier =
-  imageCarte.split("/").pop().replace(/\.[^/.]+$/, "");
-
-const info = infosCartes[nomFichier];
-
-if (info) {
-
-interpretation.innerHTML =
-  '<div style="font-size:14px;color:rgba(230,235,255,0.90);line-height:1.4;">' +
-  info.texte +
-  '</div>';
-
-  interpretation.style.display = "block";
-}
-        retournee = true;
-
-      }
-    );
-
-  });
-
-}
-
-function nouveauTirage() {
-
-  ouvrirTirage(dernierNombreCartes);
-
-}
-// =========================
-// RETOUR ACCUEIL
-// =========================
-
-function retourAccueil() {
-
-  document.querySelector(".accueil")
-    .style.display = "block";
-
-  document.getElementById("zoneTirage")
-    .style.display = "none";
-
-}
-
-</script>
-
-
-  
-</body>
 </html>
