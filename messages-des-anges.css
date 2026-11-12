@@ -1,1 +1,360 @@
 
+/* =====================================================
+   VOYANCE PROMÉTHÉE
+   LES MESSAGES DES ANGES
+===================================================== */
+
+:root {
+  color-scheme: dark;
+
+  --fond: #09061a;
+  --panneau: #18112f;
+  --or: #f1d49a;
+  --violet: #b69adf;
+  --texte: #f8f2ff;
+  --bordure: rgba(193, 160, 234, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: Arial, sans-serif;
+  color: var(--texte);
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      #39245f 0%,
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 100% 65%,
+      #211344 0%,
+      transparent 45%
+    ),
+    var(--fond);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--or);
+  outline-offset: 3px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* APPLICATION */
+
+.application {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 25px 16px 70px;
+}
+
+/* EN-TÊTE */
+
+.entete {
+  text-align: center;
+  padding: 20px 5px;
+}
+
+.symbole {
+  font-size: 45px;
+  color: var(--or);
+  text-shadow: 0 0 25px #e3bc82;
+}
+
+.entete h1 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: clamp(25px, 6vw, 37px);
+  letter-spacing: 2px;
+  color: var(--or);
+  margin: 12px 0;
+}
+
+.entete p {
+  color: #d1bee9;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* CATÉGORIES */
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 22px 0;
+}
+
+.categorie {
+  min-height: 85px;
+  padding: 12px 5px;
+
+  color: #ecddff;
+  background: #23183c;
+
+  border: 1px solid var(--bordure);
+  border-radius: 14px;
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.categorie span {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 7px;
+  color: var(--or);
+}
+
+.categorie.active {
+  border-color: var(--or);
+  background: linear-gradient(
+    135deg,
+    #47315e,
+    #211633
+  );
+
+  box-shadow: 0 0 18px rgba(218, 180, 115, 0.15);
+}
+
+/* PANNEAUX */
+
+.panneau {
+  background: linear-gradient(
+    150deg,
+    #24193d,
+    #110d26
+  );
+
+  border: 1px solid var(--bordure);
+  border-radius: 20px;
+
+  padding: 20px;
+  margin-top: 17px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.panneau h2 {
+  margin: 0 0 12px;
+
+  color: var(--or);
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.description {
+  line-height: 1.6;
+  color: #d1bee9;
+  margin-bottom: 20px;
+}
+
+/* RECHERCHE */
+
+#formulaireRecherche {
+  display: flex;
+  gap: 9px;
+}
+
+#nombreRecherche {
+  flex: 1;
+  min-width: 0;
+
+  background: #0b0820;
+  color: white;
+
+  border: 1px solid #9981bb;
+  border-radius: 12px;
+
+  padding: 14px;
+  font-size: 18px;
+}
+
+.bouton-principal {
+  padding: 13px 16px;
+
+  background: linear-gradient(
+    135deg,
+    #f8e5b7,
+    #d4a96a
+  );
+
+  border: none;
+  border-radius: 12px;
+
+  color: #291a30;
+  font-weight: bold;
+}
+
+/* BOUTONS NOMBRES */
+
+.liste-nombres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.petit-nombre {
+  padding: 9px 13px;
+
+  border-radius: 30px;
+  border: 1px solid #8570a4;
+
+  background: #271b42;
+  color: #eadbff;
+
+  font-size: 14px;
+}
+
+/* RÉSULTAT */
+
+.resultat {
+  animation: apparition 0.4s ease;
+}
+
+.type-resultat {
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--or);
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.grand-nombre {
+  text-align: center;
+
+  font-family: Georgia, serif;
+  font-size: 52px;
+
+  color: var(--or);
+  margin: 12px 0 22px;
+
+  text-shadow: 0 0 25px rgba(237, 199, 132, 0.5);
+}
+
+.partie-lecture {
+  border-top: 1px solid var(--bordure);
+  padding: 17px 0;
+}
+
+.partie-lecture h3 {
+  color: var(--or);
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.partie-lecture p {
+  font-size: 15px;
+  line-height: 1.85;
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* HISTORIQUE */
+
+.entete-historique {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.entete-historique h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.bouton-effacer {
+  background: transparent;
+  border: none;
+  color: #d6bff5;
+  text-decoration: underline;
+}
+
+/* PIED DE PAGE */
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+
+  color: #b7a7cc;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ANIMATION */
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .application {
+    padding: 15px 12px 50px;
+  }
+
+  .categorie {
+    font-size: 12px;
+    padding: 10px 3px;
+  }
+
+  .panneau {
+    padding: 17px;
+  }
+
+  #formulaireRecherche {
+    flex-direction: column;
+  }
+
+  .bouton-principal {
+    min-height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resultat {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
