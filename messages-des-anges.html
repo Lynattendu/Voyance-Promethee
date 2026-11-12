@@ -1,1 +1,158 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#09061a">
+
+  <title>Les messages des anges - Voyance Prométhée</title>
+
+  <link rel="stylesheet" href="messages-des-anges.css">
+
+  <script src="messages-des-anges.js" defer></script>
+</head>
+
+<body>
+
+  <main class="application">
+
+    <header class="entete">
+      <div class="symbole">✧ ◈ ✧</div>
+
+      <h1>LES MESSAGES DES ANGES</h1>
+
+      <p>
+        Les nombres ont leur langage.
+        Découvrez les messages symboliques
+        qu'ils peuvent évoquer.
+      </p>
+    </header>
+
+    <nav class="categories" aria-label="Catégories">
+
+      <button
+        type="button"
+        class="categorie active"
+        data-categorie="miroirs"
+      >
+        <span>◷</span>
+        Heures miroirs
+      </button>
+
+      <button
+        type="button"
+        class="categorie"
+        data-categorie="angeliques"
+      >
+        <span>✧</span>
+        Nombres angéliques
+      </button>
+
+      <button
+        type="button"
+        class="categorie"
+        data-categorie="numerologie"
+      >
+        <span>◇</span>
+        Numérologie
+      </button>
+
+    </nav>
+
+    <section class="panneau recherche">
+
+      <h2 id="titreCategorie">Les heures miroirs</h2>
+
+      <p class="description" id="descriptionCategorie">
+        Entre une heure miroir que tu as remarquée.
+      </p>
+
+      <form id="formulaireRecherche">
+
+        <input
+          type="text"
+          id="nombreRecherche"
+          placeholder="Exemple : 17h17"
+          maxlength="20"
+          autocomplete="off"
+          required
+        >
+
+        <button type="submit" class="bouton-principal">
+          Découvrir le message ✧
+        </button>
+
+      </form>
+
+      <div id="exemples" class="liste-nombres"></div>
+
+    </section>
+
+    <section
+      id="resultat"
+      class="panneau resultat"
+      hidden
+      aria-live="polite"
+    >
+
+      <p id="typeResultat" class="type-resultat"></p>
+
+      <div id="nombreResultat" class="grand-nombre"></div>
+
+      <div class="partie-lecture">
+        <h3>✧ Le message symbolique</h3>
+        <p id="messageSymbolique"></p>
+      </div>
+
+      <div class="partie-lecture">
+        <h3>✧ Lecture approfondie</h3>
+        <p id="lectureApprofondie"></p>
+      </div>
+
+      <div class="partie-lecture">
+        <h3>✧ Une direction à explorer</h3>
+        <p id="conseilMessage"></p>
+      </div>
+
+    </section>
+
+    <section id="historique" class="panneau historique" hidden>
+
+      <div class="entete-historique">
+        <h2>Mes nombres consultés</h2>
+
+        <button
+          type="button"
+          id="effacerHistorique"
+          class="bouton-effacer"
+        >
+          Effacer
+        </button>
+      </div>
+
+      <div id="listeHistorique" class="liste-nombres"></div>
+
+    </section>
+
+    <footer>
+      <p>VOYANCE PROMÉTHÉE</p>
+
+      <p>
+        Les interprétations proposées appartiennent
+        aux traditions spirituelles et numérologiques.
+        Elles ne constituent pas des prédictions certaines.
+      </p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
+
