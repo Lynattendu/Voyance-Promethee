@@ -358,3 +358,44 @@ footer {
   }
 }
 
+/* =====================================================
+   BOUTON RETOUR AUX CARTES
+===================================================== */
+
+.navigation-retour {
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px 0 10px;
+}
+
+.bouton-retour {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 12px 16px;
+
+  color: #f1d49a;
+  background: rgba(43, 30, 73, 0.75);
+
+  border: 1px solid rgba(241, 212, 154, 0.45);
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.bouton-retour:hover {
+  background: rgba(83, 55, 120, 0.8);
+  border-color: #f1d49a;
+}
+
+.bouton-retour:focus-visible {
+  outline: 2px solid #f1d49a;
+  outline-offset: 3px;
+}
+
