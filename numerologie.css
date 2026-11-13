@@ -1,1 +1,2011 @@
+/* =========================================================
+   VOYANCE PROMÉTHÉE
+   NUMÉROLOGIE — CSS COMPLET
 
+   UNIVERS VISUEL :
+   Violet profond
+   Or lumineux
+   Reflets cosmiques
+   Interface responsive
+
+   Compatible :
+   iPhone / iPad / Ordinateur
+========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES
+========================================================= */
+
+:root {
+
+  --fond: #09061a;
+  --fond-secondaire: #100b28;
+  --fond-panneau: #17102f;
+  --fond-carte: #21173e;
+  --fond-champ: #120d29;
+
+  --violet: #8e68d8;
+  --violet-clair: #c8a8ff;
+  --violet-sombre: #39265d;
+
+  --or: #e8c987;
+  --or-clair: #ffe6ac;
+  --or-sombre: #a98444;
+
+  --texte: #f4edff;
+  --texte-secondaire: #c4b6d9;
+  --texte-discret: #9486af;
+
+  --bordure: rgba(195, 157, 255, 0.20);
+  --bordure-or: rgba(232, 201, 135, 0.45);
+
+  --ombre:
+    0 12px 35px rgba(0, 0, 0, 0.35);
+
+  --ombre-doree:
+    0 0 24px rgba(232, 201, 135, 0.13);
+
+  --rayon: 20px;
+  --rayon-petit: 12px;
+
+}
+
+
+/* =========================================================
+   2. RESET
+========================================================= */
+
+* {
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  min-height: 100%;
+
+  background: var(--fond);
+
+  scroll-behavior: smooth;
+
+  -webkit-text-size-adjust: 100%;
+
+}
+
+body {
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  color: var(--texte);
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(104, 59, 175, 0.22),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 95% 35%,
+      rgba(79, 41, 141, 0.13),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      #120a2d 0%,
+      #09061a 45%,
+      #060411 100%
+    );
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.65;
+
+  overflow-x: hidden;
+
+}
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  opacity: 0.25;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 229, 171, 0.65) 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(191, 159, 255, 0.55) 1px,
+      transparent 1.5px
+    );
+
+  background-size:
+    97px 113px,
+    149px 157px;
+
+  background-position:
+    0 0,
+    43px 71px;
+
+}
+
+button,
+input,
+select {
+
+  font: inherit;
+
+}
+
+button,
+a {
+
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+button {
+
+  cursor: pointer;
+
+}
+
+a {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+[hidden] {
+
+  display: none !important;
+
+}
+
+::selection {
+
+  background: rgba(232, 201, 135, 0.35);
+
+  color: white;
+
+}
+
+
+/* =========================================================
+   3. ACCESSIBILITÉ
+========================================================= */
+
+:focus-visible {
+
+  outline: 2px solid var(--or-clair);
+
+  outline-offset: 4px;
+
+}
+
+button:disabled {
+
+  opacity: 0.5;
+
+  cursor: not-allowed;
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+
+  }
+
+}
+
+
+/* =========================================================
+   4. APPLICATION
+========================================================= */
+
+.application {
+
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding:
+    calc(22px + env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    calc(45px + env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+
+}
+
+
+/* =========================================================
+   5. NAVIGATION PRINCIPALE
+========================================================= */
+
+.navigation-principale {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 34px;
+
+}
+
+.bouton-retour {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 43px;
+
+  padding: 10px 15px;
+
+  border: 1px solid var(--bordure-or);
+
+  border-radius: 30px;
+
+  background:
+    rgba(232, 201, 135, 0.06);
+
+  color: var(--or);
+
+  text-align: center;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+}
+
+.bouton-retour:hover {
+
+  background:
+    rgba(232, 201, 135, 0.13);
+
+  border-color: var(--or);
+
+  transform: translateY(-2px);
+
+}
+
+.bouton-retour:active {
+
+  transform: scale(0.97);
+
+}
+
+
+/* =========================================================
+   6. EN-TÊTE
+========================================================= */
+
+.entete {
+
+  position: relative;
+
+  text-align: center;
+
+  padding: 22px 5px 30px;
+
+}
+
+.symbole-principal {
+
+  margin-bottom: 15px;
+
+  color: var(--or-clair);
+
+  font-size: 2rem;
+
+  letter-spacing: 10px;
+
+  text-shadow:
+    0 0 15px rgba(255, 218, 142, 0.55),
+    0 0 35px rgba(184, 115, 255, 0.35);
+
+  animation:
+    scintillement 5s ease-in-out infinite;
+
+}
+
+.entete h1 {
+
+  color: var(--or-clair);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(1.8rem, 6vw, 3rem);
+
+  font-weight: normal;
+
+  line-height: 1.25;
+
+  letter-spacing: 3px;
+
+  text-shadow:
+    0 0 22px rgba(232, 201, 135, 0.20);
+
+}
+
+.sous-titre {
+
+  margin-top: 9px;
+
+  color: var(--violet-clair);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.15rem;
+
+  font-style: italic;
+
+  letter-spacing: 1px;
+
+}
+
+.introduction {
+
+  max-width: 590px;
+
+  margin: 20px auto 0;
+
+  color: var(--texte-secondaire);
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   7. MENU DES DEUX RUBRIQUES
+========================================================= */
+
+.menu-numerologie {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+
+  margin: 16px 0 28px;
+
+}
+
+.bouton-rubrique {
+
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  width: 100%;
+
+  min-height: 165px;
+
+  padding: 20px 14px;
+
+  overflow: hidden;
+
+  color: var(--texte);
+
+  text-align: center;
+
+  border:
+    1px solid rgba(182, 144, 241, 0.27);
+
+  border-radius: var(--rayon);
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(129, 79, 191, 0.18),
+      transparent 75%
+    ),
+    linear-gradient(
+      150deg,
+      #26183e,
+      #130d28
+    );
+
+  box-shadow: var(--ombre);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+}
+
+.bouton-rubrique::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 15%;
+  right: 15%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 225, 165, 0.5),
+      transparent
+    );
+
+}
+
+.bouton-rubrique:hover {
+
+  transform: translateY(-3px);
+
+  border-color: var(--or-sombre);
+
+}
+
+.bouton-rubrique.actif {
+
+  border-color: var(--or);
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(232, 201, 135, 0.12),
+      transparent 70%
+    ),
+    linear-gradient(
+      145deg,
+      #32224b,
+      #17102f
+    );
+
+  box-shadow:
+    var(--ombre),
+    var(--ombre-doree);
+
+}
+
+.icone-rubrique {
+
+  color: var(--or);
+
+  font-size: 2rem;
+
+  line-height: 1.1;
+
+  text-shadow:
+    0 0 18px rgba(232, 201, 135, 0.35);
+
+}
+
+.nom-rubrique {
+
+  color: var(--or-clair);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1rem;
+
+  font-weight: bold;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.5px;
+
+}
+
+.description-rubrique {
+
+  color: var(--texte-secondaire);
+
+  font-size: 0.8rem;
+
+  line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   8. RUBRIQUES
+========================================================= */
+
+.rubrique {
+
+  animation:
+    apparition 0.4s ease-out both;
+
+}
+
+.panneau {
+
+  position: relative;
+
+  margin-bottom: 22px;
+
+  padding: 28px;
+
+  border: 1px solid var(--bordure);
+
+  border-radius: var(--rayon);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(31, 21, 56, 0.97),
+      rgba(17, 12, 37, 0.97)
+    );
+
+  box-shadow: var(--ombre);
+
+  overflow: hidden;
+
+}
+
+.panneau::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 10%;
+
+  width: 80%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(232, 201, 135, 0.22),
+      transparent
+    );
+
+}
+
+.panneau h2,
+.panneau h3,
+.panneau h4 {
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+}
+
+.panneau h2 {
+
+  color: var(--or-clair);
+
+  font-size: 1.7rem;
+
+  font-weight: normal;
+
+  line-height: 1.4;
+
+}
+
+.panneau h3 {
+
+  color: var(--or);
+
+  font-size: 1.35rem;
+
+  font-weight: normal;
+
+  margin-bottom: 13px;
+
+  line-height: 1.4;
+
+}
+
+.panneau h4 {
+
+  color: var(--or-clair);
+
+  font-size: 1.1rem;
+
+  font-weight: normal;
+
+  line-height: 1.5;
+
+}
+
+.panneau p {
+
+  line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   9. PRÉSENTATION D'UNE RUBRIQUE
+========================================================= */
+
+.presentation {
+
+  text-align: center;
+
+  padding: 35px 25px;
+
+  border-color:
+    rgba(232, 201, 135, 0.32);
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(133, 77, 193, 0.20),
+      transparent 80%
+    ),
+    linear-gradient(
+      145deg,
+      #21163e,
+      #120c28
+    );
+
+}
+
+.presentation p {
+
+  max-width: 630px;
+
+  margin: 12px auto 0;
+
+  color: var(--texte-secondaire);
+
+  font-size: 0.95rem;
+
+}
+
+.symbole-section {
+
+  margin-bottom: 12px;
+
+  color: var(--or-clair);
+
+  font-size: 2.4rem;
+
+  line-height: 1;
+
+  text-shadow:
+    0 0 24px rgba(232, 201, 135, 0.38);
+
+}
+
+
+/* =========================================================
+   10. DESCRIPTION
+========================================================= */
+
+.description {
+
+  margin-bottom: 24px;
+
+  color: var(--texte-secondaire);
+
+  font-size: 0.94rem;
+
+}
+
+
+/* =========================================================
+   11. FORMULAIRES
+========================================================= */
+
+form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+}
+
+.champ {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+}
+
+.champ label {
+
+  color: var(--texte);
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
+
+}
+
+.champ input,
+.champ select {
+
+  display: block;
+
+  width: 100%;
+
+  min-width: 0;
+
+  min-height: 51px;
+
+  padding: 13px 15px;
+
+  color: var(--texte);
+
+  background: var(--fond-champ);
+
+  border:
+    1px solid rgba(188, 153, 240, 0.27);
+
+  border-radius: var(--rayon-petit);
+
+  outline: none;
+
+  font-size: 16px;
+
+  line-height: 1.4;
+
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.16);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+}
+
+.champ input::placeholder {
+
+  color: #85749c;
+
+  opacity: 1;
+
+}
+
+.champ input:focus,
+.champ select:focus {
+
+  border-color: var(--or);
+
+  box-shadow:
+    0 0 0 3px rgba(232, 201, 135, 0.10),
+    inset 0 2px 8px rgba(0, 0, 0, 0.16);
+
+}
+
+.champ select {
+
+  cursor: pointer;
+
+  padding-right: 35px;
+
+}
+
+.champ select option {
+
+  color: #ffffff;
+
+  background: #17102f;
+
+}
+
+.champ input[type="date"] {
+
+  color-scheme: dark;
+
+  appearance: auto;
+
+  -webkit-appearance: auto;
+
+}
+
+.champ input[type="date"]::-webkit-calendar-picker-indicator {
+
+  cursor: pointer;
+
+  opacity: 0.9;
+
+  filter:
+    invert(85%)
+    sepia(20%)
+    saturate(420%)
+    hue-rotate(346deg);
+
+}
+
+.aide-champ {
+
+  color: var(--texte-discret);
+
+  font-size: 0.78rem;
+
+  line-height: 1.55;
+
+}
+
+
+/* =========================================================
+   12. BOUTON PRINCIPAL
+========================================================= */
+
+.bouton-principal {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 57px;
+
+  margin-top: 10px;
+
+  padding: 14px 20px;
+
+  color: #24162d;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0c7 0%,
+      #e9c782 45%,
+      #bb9455 100%
+    );
+
+  border: 1px solid #f6db9d;
+
+  border-radius: 14px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.04rem;
+
+  font-weight: bold;
+
+  line-height: 1.4;
+
+  text-align: center;
+
+  box-shadow:
+    0 6px 22px rgba(232, 201, 135, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+
+}
+
+.bouton-principal:hover {
+
+  transform: translateY(-2px);
+
+  filter: brightness(1.06);
+
+  box-shadow:
+    0 10px 28px rgba(232, 201, 135, 0.22);
+
+}
+
+.bouton-principal:active {
+
+  transform: scale(0.98);
+
+}
+
+
+/* =========================================================
+   13. SOUS-MENU NUMÉROLOGIE PERSONNELLE
+========================================================= */
+
+.sous-menu {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+
+}
+
+.bouton-sous-menu {
+
+  min-height: 55px;
+
+  padding: 12px 10px;
+
+  color: var(--texte-secondaire);
+
+  background:
+    rgba(35, 23, 66, 0.85);
+
+  border:
+    1px solid var(--bordure);
+
+  border-radius: 12px;
+
+  font-size: 0.88rem;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+
+  text-align: center;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+
+}
+
+.bouton-sous-menu:hover {
+
+  color: var(--or-clair);
+
+  border-color: var(--or-sombre);
+
+}
+
+.bouton-sous-menu.actif {
+
+  color: var(--or-clair);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(112, 69, 159, 0.32),
+      rgba(36, 24, 65, 0.95)
+    );
+
+  border-color: var(--or);
+
+  box-shadow:
+    0 0 15px rgba(232, 201, 135, 0.07);
+
+}
+
+
+/* =========================================================
+   14. ANALYSE PERSONNELLE
+========================================================= */
+
+.analyse-personnelle {
+
+  animation:
+    apparition 0.35s ease-out both;
+
+}
+
+.separateur-personnes {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  padding: 10px 0;
+
+  color: var(--or);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.2rem;
+
+  letter-spacing: 3px;
+
+}
+
+.separateur-personnes::before,
+.separateur-personnes::after {
+
+  content: "";
+
+  flex: 1;
+
+  max-width: 100px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(232, 201, 135, 0.45),
+      transparent
+    );
+
+}
+
+
+/* =========================================================
+   15. RÉSULTATS
+========================================================= */
+
+.resultat {
+
+  margin-top: 28px;
+
+  border-color:
+    rgba(232, 201, 135, 0.35);
+
+  animation:
+    apparitionResultat 0.55s ease-out both;
+
+}
+
+.resultat-entete {
+
+  text-align: center;
+
+  padding: 15px 0 25px;
+
+}
+
+.resultat-entete h3 {
+
+  margin-bottom: 8px;
+
+  color: var(--or-clair);
+
+  font-size: 1.55rem;
+
+}
+
+.resultat-entete p {
+
+  color: var(--texte-secondaire);
+
+  font-size: 0.9rem;
+
+}
+
+.symbole-resultat {
+
+  color: var(--or);
+
+  font-size: 2.7rem;
+
+  margin-bottom: 13px;
+
+  text-shadow:
+    0 0 25px rgba(232, 201, 135, 0.45);
+
+}
+
+.resultat > h3 {
+
+  text-align: center;
+
+  padding: 6px 0 19px;
+
+}
+
+
+/* =========================================================
+   16. GRILLE DES NOMBRES
+========================================================= */
+
+.grille-resultats {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-bottom: 25px;
+
+}
+
+.carte-nombre {
+
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 155px;
+
+  padding: 20px 15px;
+
+  text-align: center;
+
+  border:
+    1px solid rgba(232, 201, 135, 0.25);
+
+  border-radius: 17px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(173, 111, 225, 0.16),
+      transparent 78%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(44, 28, 75, 0.90),
+      rgba(22, 14, 43, 0.96)
+    );
+
+  box-shadow:
+    0 7px 22px rgba(0, 0, 0, 0.20);
+
+}
+
+.carte-nombre::before {
+
+  content: "✧";
+
+  position: absolute;
+
+  top: 9px;
+  right: 14px;
+
+  color: rgba(232, 201, 135, 0.35);
+
+  font-size: 1rem;
+
+}
+
+.carte-nombre h4 {
+
+  color: var(--texte-secondaire);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 0.95rem;
+
+  font-weight: normal;
+
+  line-height: 1.5;
+
+}
+
+.valeur-nombre {
+
+  margin: 11px 0 8px;
+
+  color: var(--or-clair);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(2.5rem, 8vw, 4rem);
+
+  font-weight: normal;
+
+  line-height: 1;
+
+  text-shadow:
+    0 0 12px rgba(255, 214, 130, 0.3),
+    0 0 30px rgba(198, 144, 255, 0.18);
+
+}
+
+.carte-nombre p {
+
+  color: var(--texte-secondaire);
+
+  font-size: 0.8rem;
+
+  line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   17. SECTIONS DE LECTURE
+========================================================= */
+
+.partie-lecture {
+
+  position: relative;
+
+  margin-top: 20px;
+
+  padding: 23px;
+
+  border:
+    1px solid rgba(189, 153, 244, 0.17);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(34, 22, 59, 0.78),
+      rgba(17, 12, 35, 0.90)
+    );
+
+}
+
+.partie-lecture h4 {
+
+  display: flex;
+
+  align-items: center;
+
+  margin-bottom: 16px;
+
+  color: var(--or-clair);
+
+  font-size: 1.18rem;
+
+  line-height: 1.5;
+
+}
+
+.lecture-contenu {
+
+  color: var(--texte);
+
+  font-size: 0.94rem;
+
+  line-height: 1.9;
+
+  overflow-wrap: anywhere;
+
+  white-space: pre-line;
+
+}
+
+.lecture-contenu p {
+
+  margin-bottom: 15px;
+
+}
+
+.lecture-contenu p:last-child {
+
+  margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   18. SYNTHÈSE GÉNÉRALE
+========================================================= */
+
+.partie-lecture.synthese {
+
+  margin-top: 26px;
+
+  padding: 28px;
+
+  border:
+    1px solid var(--bordure-or);
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(232, 201, 135, 0.08),
+      transparent 65%
+    ),
+    linear-gradient(
+      145deg,
+      #2b2044,
+      #160f2d
+    );
+
+  box-shadow:
+    var(--ombre-doree);
+
+}
+
+.partie-lecture.synthese h4 {
+
+  color: var(--or-clair);
+
+  font-size: 1.3rem;
+
+}
+
+.partie-lecture.synthese .lecture-contenu {
+
+  line-height: 2;
+
+}
+
+
+/* =========================================================
+   19. INFORMATIONS
+========================================================= */
+
+.informations {
+
+  margin-top: 35px;
+
+  border-color:
+    rgba(232, 201, 135, 0.18);
+
+  background:
+    rgba(22, 15, 43, 0.80);
+
+}
+
+.informations h3 {
+
+  font-size: 1.15rem;
+
+}
+
+.informations p {
+
+  margin-top: 12px;
+
+  color: var(--texte-secondaire);
+
+  font-size: 0.86rem;
+
+  line-height: 1.85;
+
+}
+
+
+/* =========================================================
+   20. PIED DE PAGE
+========================================================= */
+
+footer {
+
+  padding: 35px 15px 20px;
+
+  text-align: center;
+
+  border-top:
+    1px solid rgba(232, 201, 135, 0.18);
+
+}
+
+footer p:first-child {
+
+  color: var(--or);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1rem;
+
+  letter-spacing: 2px;
+
+}
+
+footer p:nth-child(2) {
+
+  max-width: 650px;
+
+  margin: 12px auto 22px;
+
+  color: var(--texte-discret);
+
+  font-size: 0.8rem;
+
+  line-height: 1.8;
+
+}
+
+footer a {
+
+  display: inline-block;
+
+  padding: 10px 18px;
+
+  color: var(--or);
+
+  font-size: 0.9rem;
+
+  border:
+    1px solid var(--bordure-or);
+
+  border-radius: 25px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+
+}
+
+footer a:hover {
+
+  background:
+    rgba(232, 201, 135, 0.10);
+
+  color: var(--or-clair);
+
+}
+
+
+/* =========================================================
+   21. ANIMATIONS
+========================================================= */
+
+@keyframes apparition {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+@keyframes apparitionResultat {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+@keyframes scintillement {
+
+  0%,
+  100% {
+
+    opacity: 0.72;
+
+    transform: scale(1);
+
+  }
+
+  50% {
+
+    opacity: 1;
+
+    transform: scale(1.05);
+
+  }
+
+}
+
+
+/* =========================================================
+   22. TABLETTES
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .application {
+
+    max-width: 700px;
+
+    padding-left: 18px;
+    padding-right: 18px;
+
+  }
+
+  .panneau {
+
+    padding: 23px;
+
+  }
+
+  .menu-numerologie {
+
+    gap: 12px;
+
+  }
+
+  .bouton-rubrique {
+
+    min-height: 155px;
+
+    padding: 17px 12px;
+
+  }
+
+  .grille-resultats {
+
+    gap: 12px;
+
+  }
+
+}
+
+
+/* =========================================================
+   23. IPHONE / PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .application {
+
+    padding:
+      calc(14px + env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      calc(30px + env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left));
+
+  }
+
+  .navigation-principale {
+
+    gap: 8px;
+
+    margin-bottom: 23px;
+
+  }
+
+  .bouton-retour {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 9px 8px;
+
+    font-size: 0.73rem;
+
+    line-height: 1.4;
+
+  }
+
+  .entete {
+
+    padding: 15px 0 25px;
+
+  }
+
+  .symbole-principal {
+
+    font-size: 1.7rem;
+
+    letter-spacing: 7px;
+
+  }
+
+  .entete h1 {
+
+    font-size: 1.85rem;
+
+    letter-spacing: 1.5px;
+
+  }
+
+  .sous-titre {
+
+    font-size: 1.02rem;
+
+  }
+
+  .introduction {
+
+    font-size: 0.86rem;
+
+  }
+
+  .menu-numerologie {
+
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+
+    margin-bottom: 22px;
+
+  }
+
+  .bouton-rubrique {
+
+    min-height: 120px;
+
+    padding: 15px 12px;
+
+    gap: 6px;
+
+  }
+
+  .icone-rubrique {
+
+    font-size: 1.65rem;
+
+  }
+
+  .nom-rubrique {
+
+    font-size: 0.96rem;
+
+  }
+
+  .description-rubrique {
+
+    font-size: 0.76rem;
+
+  }
+
+  .panneau {
+
+    padding: 19px 16px;
+
+    margin-bottom: 17px;
+
+    border-radius: 17px;
+
+  }
+
+  .presentation {
+
+    padding: 25px 17px;
+
+  }
+
+  .panneau h2 {
+
+    font-size: 1.42rem;
+
+  }
+
+  .panneau h3 {
+
+    font-size: 1.17rem;
+
+  }
+
+  .panneau h4 {
+
+    font-size: 1.03rem;
+
+  }
+
+  .description {
+
+    font-size: 0.86rem;
+
+  }
+
+  .champ label {
+
+    font-size: 0.85rem;
+
+  }
+
+  .champ input,
+  .champ select {
+
+    min-height: 50px;
+
+    padding: 12px 13px;
+
+    font-size: 16px;
+
+  }
+
+  .bouton-principal {
+
+    min-height: 55px;
+
+    font-size: 0.95rem;
+
+    padding: 12px;
+
+  }
+
+  .sous-menu {
+
+    gap: 7px;
+
+  }
+
+  .bouton-sous-menu {
+
+    min-height: 52px;
+
+    padding: 10px 5px;
+
+    font-size: 0.76rem;
+
+  }
+
+  .grille-resultats {
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+  }
+
+  .carte-nombre {
+
+    min-height: 135px;
+
+    padding: 15px 8px;
+
+    border-radius: 14px;
+
+  }
+
+  .carte-nombre h4 {
+
+    font-size: 0.85rem;
+
+  }
+
+  .valeur-nombre {
+
+    font-size: 2.7rem;
+
+  }
+
+  .carte-nombre p {
+
+    font-size: 0.73rem;
+
+  }
+
+  .partie-lecture {
+
+    padding: 18px 15px;
+
+    margin-top: 15px;
+
+  }
+
+  .partie-lecture h4 {
+
+    font-size: 1.05rem;
+
+  }
+
+  .lecture-contenu {
+
+    font-size: 0.88rem;
+
+    line-height: 1.85;
+
+  }
+
+  .partie-lecture.synthese {
+
+    padding: 21px 16px;
+
+  }
+
+  .resultat-entete h3 {
+
+    font-size: 1.3rem;
+
+  }
+
+  .informations p {
+
+    font-size: 0.81rem;
+
+  }
+
+}
+
+
+/* =========================================================
+   24. TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .entete h1 {
+
+    font-size: 1.55rem;
+
+  }
+
+  .bouton-retour {
+
+    font-size: 0.69rem;
+
+  }
+
+  .sous-menu {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .bouton-sous-menu {
+
+    min-height: 43px;
+
+  }
+
+  .grille-resultats {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .carte-nombre {
+
+    min-height: 120px;
+
+  }
+
+}
+
+
+/* =========================================================
+   25. ÉCRANS LARGES
+========================================================= */
+
+@media (min-width: 900px) {
+
+  .application {
+
+    padding-top: 35px;
+
+  }
+
+  .menu-numerologie {
+
+    gap: 20px;
+
+  }
+
+  .bouton-rubrique {
+
+    min-height: 175px;
+
+  }
+
+  .grille-resultats {
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+  }
+
+  .panneau {
+
+    padding: 34px;
+
+  }
+
+}
+
+
+/* =========================================================
+   FIN DU CSS
+   VOYANCE PROMÉTHÉE — NUMÉROLOGIE
+========================================================= */
