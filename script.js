@@ -1783,3 +1783,344 @@ function retourAccueil() {
   });
 
 }
+
+/* =========================================================
+   LECTURE APPROFONDIE PERSONNALISÉE
+   VOYANCE PROMÉTHÉE
+========================================================= */
+
+const DOMAINES_LECTURE = {
+
+  general: {
+    nom: "Lecture générale",
+
+    introduction:
+      "Ce tirage propose plusieurs pistes de réflexion. " +
+      "Il convient de considérer la situation dans son ensemble.",
+
+    Forces:
+      "Des ressources, des capacités ou des possibilités " +
+      "de progression peuvent être mobilisées.",
+
+    Liens:
+      "Les relations et les engagements pourraient jouer " +
+      "un rôle important dans la situation.",
+
+    Mouvements:
+      "Une évolution, un changement de rythme ou une " +
+      "nouvelle direction mérite d'être envisagé.",
+
+    Signes:
+      "Certaines informations pourraient permettre " +
+      "de mieux comprendre la situation.",
+
+    Ombres:
+      "Un doute, une difficulté ou un élément encore mal " +
+      "compris demande de l'attention."
+  },
+
+  amour: {
+    nom: "Amour et relations",
+
+    introduction:
+      "Sur le plan sentimental, ce tirage invite à observer " +
+      "les sentiments, les attentes et l'évolution des liens. " +
+      "Il peut concerner une relation existante, une rencontre " +
+      "ou une période de questionnement affectif.",
+
+    Forces:
+      "Une capacité à reconstruire la confiance, à exprimer " +
+      "ses sentiments ou à retrouver un équilibre pourrait " +
+      "favoriser une évolution constructive.",
+
+    Liens:
+      "La qualité des échanges, l'attachement et la réciprocité " +
+      "semblent être des thèmes importants. Un rapprochement " +
+      "peut être envisagé, mais il dépend des intentions " +
+      "réelles des personnes concernées.",
+
+    Mouvements:
+      "La relation pourrait traverser une période de " +
+      "transformation. Cela peut évoquer une rencontre, " +
+      "un rapprochement, une prise de distance ou une " +
+      "nouvelle manière de vivre ses sentiments.",
+
+    Signes:
+      "Une conversation, une attitude ou une information " +
+      "pourrait apporter davantage de clarté. Il serait " +
+      "utile de distinguer ce qui est réellement exprimé " +
+      "de ce que l'on suppose.",
+
+    Ombres:
+      "Des non-dits, des hésitations, des blessures ou " +
+      "des attentes différentes pourraient compliquer " +
+      "les échanges. Cela ne signifie pas nécessairement " +
+      "qu'une séparation se produira."
+  },
+
+  travail: {
+    nom: "Travail et projets",
+
+    introduction:
+      "Dans le domaine professionnel, ce tirage invite " +
+      "à examiner les possibilités d'évolution, les " +
+      "ressources disponibles et les décisions à envisager.",
+
+    Forces:
+      "Tes compétences, ta détermination ou les moyens " +
+      "dont tu disposes peuvent constituer des appuis " +
+      "importants pour faire avancer ton projet.",
+
+    Liens:
+      "Une collaboration, une discussion, un partenaire " +
+      "ou une personne de ton entourage professionnel " +
+      "pourrait influencer la situation.",
+
+    Mouvements:
+      "Une évolution professionnelle, un nouveau projet " +
+      "ou une modification de ton organisation pourrait " +
+      "être envisagé. Un changement n'est pas forcément " +
+      "immédiat ni obligatoire.",
+
+    Signes:
+      "Une proposition, une réponse, une information " +
+      "ou un détail pratique mérite peut-être d'être " +
+      "examiné avant de prendre une décision.",
+
+    Ombres:
+      "Certaines contraintes, incertitudes ou tensions " +
+      "pourraient ralentir le projet. Il serait prudent " +
+      "de vérifier les éléments concrets avant de s'engager."
+  },
+
+  choix: {
+    nom: "Choix et décisions",
+
+    introduction:
+      "Ce tirage concerne une situation dans laquelle " +
+      "plusieurs directions peuvent être envisagées. " +
+      "Il ne désigne pas automatiquement une bonne " +
+      "ou une mauvaise décision.",
+
+    Forces:
+      "Certaines ressources personnelles ou possibilités " +
+      "concrètes pourraient faciliter la décision.",
+
+    Liens:
+      "Les attentes d'autres personnes peuvent influencer " +
+      "le choix. Il serait utile de distinguer tes propres " +
+      "priorités des demandes extérieures.",
+
+    Mouvements:
+      "La situation pourrait évoluer après une initiative " +
+      "ou un changement de méthode. Attendre est également " +
+      "une possibilité, mais elle peut avoir ses conséquences.",
+
+    Signes:
+      "Une information complémentaire pourrait éclairer " +
+      "les différentes options. Vérifier les faits peut " +
+      "être plus utile que rechercher une certitude immédiate.",
+
+    Ombres:
+      "Une peur, une hésitation ou une incertitude pourrait " +
+      "peser sur le jugement. Identifier précisément " +
+      "ce qui bloque pourrait aider à avancer."
+  },
+
+  personnel: {
+    nom: "Évolution personnelle",
+
+    introduction:
+      "Ce tirage invite à réfléchir à ton évolution, " +
+      "à tes aspirations et aux changements que tu " +
+      "souhaites apporter à ta vie.",
+
+    Forces:
+      "Des qualités ou des ressources personnelles " +
+      "pourraient être davantage développées. " +
+      "La progression peut être graduelle.",
+
+    Liens:
+      "Certaines relations peuvent soutenir ton évolution, " +
+      "tandis que d'autres t'invitent peut-être à revoir " +
+      "tes limites ou tes attentes.",
+
+    Mouvements:
+      "Une période de transition ou une envie de renouveau " +
+      "pourrait t'amener à changer certaines habitudes " +
+      "ou priorités.",
+
+    Signes:
+      "Une prise de conscience, une découverte ou un échange " +
+      "pourrait enrichir ta réflexion.",
+
+    Ombres:
+      "Des doutes, des habitudes anciennes ou des difficultés " +
+      "non résolues pourraient freiner ton évolution. " +
+      "Les reconnaître peut être une première étape."
+  },
+
+  famille: {
+    nom: "Famille et entourage",
+
+    introduction:
+      "Ce tirage invite à examiner les relations familiales, " +
+      "l'entourage proche et les équilibres qui existent " +
+      "entre les différentes personnes.",
+
+    Forces:
+      "Le soutien, la compréhension ou la capacité à " +
+      "trouver des solutions peuvent faciliter les échanges.",
+
+    Liens:
+      "Les attaches familiales, la solidarité et les " +
+      "engagements occupent une place importante. " +
+      "Certains liens pourraient demander davantage " +
+      "d'attention ou de dialogue.",
+
+    Mouvements:
+      "Une évolution dans les habitudes, les rôles ou " +
+      "l'organisation familiale pourrait modifier " +
+      "l'équilibre actuel.",
+
+    Signes:
+      "Une conversation ou une information pourrait " +
+      "permettre de mieux comprendre les attentes " +
+      "de chacun.",
+
+    Ombres:
+      "Des tensions, des malentendus ou des responsabilités " +
+      "inégalement partagées pourraient demander " +
+      "une clarification."
+  }
+
+};
+
+
+/* =========================================================
+   CONSTRUCTION DE LA LECTURE
+========================================================= */
+
+function construirePossibilitesPersonnalisees(infos) {
+
+  const selecteur =
+    document.getElementById("domaineTirage");
+
+  const champQuestion =
+    document.getElementById("questionTirage");
+
+  const domaine =
+    selecteur ? selecteur.value : "general";
+
+  const configuration =
+    DOMAINES_LECTURE[domaine] ||
+    DOMAINES_LECTURE.general;
+
+  const question =
+    champQuestion ? champQuestion.value.trim() : "";
+
+  const familles = [
+    "Forces",
+    "Liens",
+    "Mouvements",
+    "Signes",
+    "Ombres"
+  ];
+
+  const presentes = familles.filter(
+    famille => infos.some(
+      info => info.famille === famille
+    )
+  );
+
+  let texte =
+    "DOMAINE EXPLORÉ : " +
+    configuration.nom.toUpperCase() +
+    "\n\n";
+
+  if (question) {
+
+    texte +=
+      "QUESTION POSÉE\n" +
+      question +
+      "\n\n";
+
+  }
+
+  texte +=
+    "LES POSSIBILITÉS QUI SE DÉGAGENT\n\n" +
+    configuration.introduction +
+    "\n\n";
+
+  presentes.forEach(famille => {
+
+    texte +=
+      configuration[famille] +
+      "\n\n";
+
+  });
+
+  if (
+    presentes.includes("Ombres") &&
+    presentes.includes("Forces")
+  ) {
+
+    texte +=
+      "UN ÉQUILIBRE À TROUVER\n\n" +
+      "Le tirage associe des difficultés possibles " +
+      "à des ressources constructives. Il ne suggère " +
+      "donc pas nécessairement une impasse : " +
+      "plusieurs manières de dépasser les obstacles " +
+      "peuvent être envisagées.\n\n";
+
+  }
+
+  if (
+    presentes.includes("Liens") &&
+    presentes.includes("Mouvements")
+  ) {
+
+    texte +=
+      "UNE RELATION ENTRE LES CHANGEMENTS ET L'ENTOURAGE\n\n" +
+      "L'évolution de la situation pourrait dépendre " +
+      "à la fois des décisions personnelles et des " +
+      "échanges avec d'autres personnes.\n\n";
+
+  }
+
+  if (
+    presentes.includes("Signes") &&
+    presentes.includes("Ombres")
+  ) {
+
+    texte +=
+      "UN BESOIN DE CLARTÉ\n\n" +
+      "Le tirage réunit des éléments d'incertitude " +
+      "et de recherche d'informations. Avant de conclure, " +
+      "il pourrait être utile de distinguer les faits, " +
+      "les impressions et les suppositions.\n\n";
+
+  }
+
+  texte +=
+    "POUR ALLER PLUS LOIN\n\n" +
+    "Cette lecture est construite à partir du domaine " +
+    "choisi et des thèmes des cartes retournées. " +
+    "Elle propose différentes interprétations possibles " +
+    "sans prétendre connaître tous les détails " +
+    "de ta situation.";
+
+  if (question) {
+
+    texte +=
+      "\n\nLa question que tu as écrite sert de contexte " +
+      "à ta consultation. Elle n'est pas analysée " +
+      "automatiquement dans son sens précis.";
+
+  }
+
+  return texte.trim();
+
+}
+
+
