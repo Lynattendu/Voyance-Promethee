@@ -1,1 +1,1156 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#09061a">
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <title>
+    Numérologie - Voyance Prométhée
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="numerologie.css">
+
+  <!-- JAVASCRIPT -->
+  <script src="numerologie.js" defer></script>
+
+</head>
+
+<body>
+
+  <main class="application">
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <nav class="navigation-principale"
+         aria-label="Navigation principale">
+
+      <a href="index.html" class="bouton-retour">
+        ← Cartes de voyance
+      </a>
+
+      <a
+        href="messages-des-anges.html"
+        class="bouton-retour"
+      >
+        ✧ Messages des anges
+      </a>
+
+    </nav>
+
+
+    <!-- =========================================
+         EN-TÊTE
+    ========================================== -->
+
+    <header class="entete">
+
+      <div class="symbole-principal"
+           aria-hidden="true">
+        ✧ ◈ ✧
+      </div>
+
+      <h1>NUMÉROLOGIE</h1>
+
+      <p class="sous-titre">
+        L'univers des nombres
+      </p>
+
+      <p class="introduction">
+        Explore les nombres associés à ton identité,
+        à ton parcours de vie et aux événements
+        importants de ton existence.
+      </p>
+
+    </header>
+
+
+    <!-- =========================================
+         CHOIX DES DEUX RUBRIQUES
+    ========================================== -->
+
+    <nav class="menu-numerologie"
+         aria-label="Rubriques de numérologie">
+
+      <button
+        type="button"
+        class="bouton-rubrique actif"
+        id="boutonProfil"
+        data-rubrique="profil"
+        aria-controls="rubriqueProfil"
+        aria-expanded="true"
+      >
+        <span class="icone-rubrique">◇</span>
+
+        <span class="nom-rubrique">
+          MON PROFIL NUMÉROLOGIQUE
+        </span>
+
+        <span class="description-rubrique">
+          Identité, personnalité et chemin de vie
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="bouton-rubrique"
+        id="boutonPersonnel"
+        data-rubrique="personnel"
+        aria-controls="rubriquePersonnel"
+        aria-expanded="false"
+      >
+        <span class="icone-rubrique">✧</span>
+
+        <span class="nom-rubrique">
+          NUMÉROLOGIE PERSONNELLE
+        </span>
+
+        <span class="description-rubrique">
+          Cycles, événements et compatibilité
+        </span>
+      </button>
+
+    </nav>
+
+
+    <!-- =========================================
+         RUBRIQUE 1
+         MON PROFIL NUMÉROLOGIQUE
+    ========================================== -->
+
+    <section
+      id="rubriqueProfil"
+      class="rubrique"
+    >
+
+      <div class="panneau presentation">
+
+        <div class="symbole-section"
+             aria-hidden="true">
+          ◇
+        </div>
+
+        <h2>Mon profil numérologique</h2>
+
+        <p>
+          Découvre les nombres associés à ton
+          nom de naissance, à tes prénoms et
+          à ta date de naissance.
+        </p>
+
+      </div>
+
+
+      <!-- INFORMATIONS PERSONNELLES -->
+
+      <section class="panneau">
+
+        <h3>✧ Ton identité de naissance</h3>
+
+        <p class="description">
+          Indique tes informations telles
+          qu'elles figurent à ta naissance.
+          Tous les prénoms seront pris en compte.
+        </p>
+
+        <form id="formulaireProfil">
+
+          <div class="champ">
+
+            <label for="prenomNaissance">
+              Premier prénom de naissance
+            </label>
+
+            <input
+              type="text"
+              id="prenomNaissance"
+              name="prenomNaissance"
+              placeholder="Exemple : Marie"
+              autocomplete="off"
+              maxlength="100"
+              required
+            >
+
+          </div>
+
+
+          <div class="champ">
+
+            <label for="autresPrenoms">
+              Autres prénoms de naissance
+            </label>
+
+            <input
+              type="text"
+              id="autresPrenoms"
+              name="autresPrenoms"
+              placeholder="Exemple : Claire Sophie"
+              autocomplete="off"
+              maxlength="200"
+            >
+
+            <p class="aide-champ">
+              Facultatif. Sépare les prénoms
+              par un espace.
+            </p>
+
+          </div>
+
+
+          <div class="champ">
+
+            <label for="nomNaissance">
+              Nom de famille de naissance
+            </label>
+
+            <input
+              type="text"
+              id="nomNaissance"
+              name="nomNaissance"
+              placeholder="Exemple : Martin"
+              autocomplete="off"
+              maxlength="150"
+              required
+            >
+
+          </div>
+
+
+          <div class="champ">
+
+            <label for="dateNaissance">
+              Date de naissance
+            </label>
+
+            <input
+              type="date"
+              id="dateNaissance"
+              name="dateNaissance"
+              required
+            >
+
+          </div>
+
+
+          <div class="champ">
+
+            <label for="nomUsage">
+              Nom actuellement utilisé
+            </label>
+
+            <input
+              type="text"
+              id="nomUsage"
+              name="nomUsage"
+              placeholder="Facultatif"
+              autocomplete="off"
+              maxlength="150"
+            >
+
+            <p class="aide-champ">
+              Pour une analyse complémentaire
+              distincte du nom de naissance.
+            </p>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="bouton-principal"
+            id="calculerProfil"
+          >
+            ✧ Découvrir mon profil numérologique
+          </button>
+
+        </form>
+
+      </section>
+
+
+      <!-- RÉSULTATS DU PROFIL -->
+
+      <section
+        id="resultatProfil"
+        class="panneau resultat"
+        hidden
+        aria-live="polite"
+      >
+
+        <div class="resultat-entete">
+
+          <div class="symbole-resultat"
+               aria-hidden="true">
+            ✦
+          </div>
+
+          <h3>Ton portrait numérologique</h3>
+
+          <p id="identiteResultat"></p>
+
+        </div>
+
+
+        <div class="grille-resultats">
+
+          <article class="carte-nombre">
+
+            <h4>Chemin de vie</h4>
+
+            <div
+              id="nombreCheminVie"
+              class="valeur-nombre"
+            ></div>
+
+            <p id="resumeCheminVie"></p>
+
+          </article>
+
+
+          <article class="carte-nombre">
+
+            <h4>Nombre d'expression</h4>
+
+            <div
+              id="nombreExpression"
+              class="valeur-nombre"
+            ></div>
+
+            <p id="resumeExpression"></p>
+
+          </article>
+
+
+          <article class="carte-nombre">
+
+            <h4>Élan de l'âme</h4>
+
+            <div
+              id="nombreAme"
+              class="valeur-nombre"
+            ></div>
+
+            <p id="resumeAme"></p>
+
+          </article>
+
+
+          <article class="carte-nombre">
+
+            <h4>Nombre de personnalité</h4>
+
+            <div
+              id="nombrePersonnalite"
+              class="valeur-nombre"
+            ></div>
+
+            <p id="resumePersonnalite"></p>
+
+          </article>
+
+
+          <article class="carte-nombre">
+
+            <h4>Nombre de maturité</h4>
+
+            <div
+              id="nombreMaturite"
+              class="valeur-nombre"
+            ></div>
+
+            <p id="resumeMaturite"></p>
+
+          </article>
+
+        </div>
+
+
+        <!-- EXPLICATION DES CALCULS -->
+
+        <section class="partie-lecture">
+
+          <h4>✧ Comment tes nombres sont calculés</h4>
+
+          <div
+            id="detailsCalculProfil"
+            class="lecture-contenu"
+          ></div>
+
+        </section>
+
+
+        <!-- FORCES -->
+
+        <section class="partie-lecture">
+
+          <h4>✧ Tes forces symboliques</h4>
+
+          <div
+            id="lectureForces"
+            class="lecture-contenu"
+          ></div>
+
+        </section>
+
+
+        <!-- DÉFIS -->
+
+        <section class="partie-lecture">
+
+          <h4>✧ Tes défis et tes équilibres</h4>
+
+          <div
+            id="lectureDefis"
+            class="lecture-contenu"
+          ></div>
+
+        </section>
+
+
+        <!-- ASPIRATIONS -->
+
+        <section class="partie-lecture">
+
+          <h4>✧ Tes aspirations profondes</h4>
+
+          <div
+            id="lectureAspirations"
+            class="lecture-contenu"
+          ></div>
+
+        </section>
+
+
+        <!-- RELATIONS -->
+
+        <section class="partie-lecture">
+
+          <h4>✧ Tes relations et tes échanges</h4>
+
+          <div
+            id="lectureRelations"
+            class="lecture-contenu"
+          ></div>
+
+        </section>
+
+
+        <!-- SYNTHÈSE -->
+
+        <section class="partie-lecture synthese">
+
+          <h4>✧ Synthèse de ton profil</h4>
+
+          <div
+            id="syntheseProfil"
+            class="lecture-contenu"
+          ></div>
+
+        </section>
+
+      </section>
+
+    </section>
+
+
+    <!-- =========================================
+         RUBRIQUE 2
+         NUMÉROLOGIE PERSONNELLE
+    ========================================== -->
+
+    <section
+      id="rubriquePersonnel"
+      class="rubrique"
+      hidden
+    >
+
+      <div class="panneau presentation">
+
+        <div class="symbole-section"
+             aria-hidden="true">
+          ✧
+        </div>
+
+        <h2>Numérologie personnelle</h2>
+
+        <p>
+          Explore les influences symboliques
+          associées aux cycles de ta vie,
+          aux dates importantes et aux relations.
+        </p>
+
+      </div>
+
+
+      <!-- SOUS-MENU -->
+
+      <nav
+        class="sous-menu"
+        aria-label="Analyses personnelles"
+      >
+
+        <button
+          type="button"
+          class="bouton-sous-menu actif"
+          data-analyse="cycles"
+          aria-pressed="true"
+        >
+          Mes cycles
+        </button>
+
+        <button
+          type="button"
+          class="bouton-sous-menu"
+          data-analyse="evenement"
+          aria-pressed="false"
+        >
+          Date importante
+        </button>
+
+        <button
+          type="button"
+          class="bouton-sous-menu"
+          data-analyse="compatibilite"
+          aria-pressed="false"
+        >
+          Compatibilité
+        </button>
+
+      </nav>
+
+
+      <!-- ======================================
+           MES CYCLES PERSONNELS
+      ======================================= -->
+
+      <section
+        id="analyseCycles"
+        class="analyse-personnelle"
+      >
+
+        <div class="panneau">
+
+          <h3>✧ Mes cycles personnels</h3>
+
+          <p class="description">
+            Découvre les thèmes symboliques
+            associés à ton année personnelle,
+            ton mois personnel et ton jour personnel.
+          </p>
+
+          <form id="formulaireCycles">
+
+            <div class="champ">
+
+              <label for="naissanceCycles">
+                Ta date de naissance
+              </label>
+
+              <input
+                type="date"
+                id="naissanceCycles"
+                required
+              >
+
+            </div>
+
+            <div class="champ">
+
+              <label for="dateCycles">
+                Date à étudier
+              </label>
+
+              <input
+                type="date"
+                id="dateCycles"
+                required
+              >
+
+            </div>
+
+            <button
+              type="submit"
+              class="bouton-principal"
+            >
+              ✧ Découvrir mes cycles
+            </button>
+
+          </form>
+
+        </div>
+
+
+        <section
+          id="resultatCycles"
+          class="panneau resultat"
+          hidden
+          aria-live="polite"
+        >
+
+          <h3>Mes cycles numérologiques</h3>
+
+          <div class="grille-resultats">
+
+            <article class="carte-nombre">
+
+              <h4>Année personnelle</h4>
+
+              <div
+                id="nombreAnneePersonnelle"
+                class="valeur-nombre"
+              ></div>
+
+              <p id="resumeAnneePersonnelle"></p>
+
+            </article>
+
+            <article class="carte-nombre">
+
+              <h4>Mois personnel</h4>
+
+              <div
+                id="nombreMoisPersonnel"
+                class="valeur-nombre"
+              ></div>
+
+              <p id="resumeMoisPersonnel"></p>
+
+            </article>
+
+            <article class="carte-nombre">
+
+              <h4>Jour personnel</h4>
+
+              <div
+                id="nombreJourPersonnel"
+                class="valeur-nombre"
+              ></div>
+
+              <p id="resumeJourPersonnel"></p>
+
+            </article>
+
+          </div>
+
+
+          <section class="partie-lecture">
+
+            <h4>✧ Détails des calculs</h4>
+
+            <div
+              id="detailsCalculCycles"
+              class="lecture-contenu"
+            ></div>
+
+          </section>
+
+
+          <section class="partie-lecture">
+
+            <h4>✧ Lecture de cette période</h4>
+
+            <div
+              id="lectureCycles"
+              class="lecture-contenu"
+            ></div>
+
+          </section>
+
+        </section>
+
+      </section>
+
+
+      <!-- ======================================
+           ANALYSE D'UNE DATE IMPORTANTE
+      ======================================= -->
+
+      <section
+        id="analyseEvenement"
+        class="analyse-personnelle"
+        hidden
+      >
+
+        <div class="panneau">
+
+          <h3>✧ Une date importante</h3>
+
+          <p class="description">
+            Étudie la symbolique numérologique
+            d'une date prévue pour un événement.
+          </p>
+
+          <form id="formulaireEvenement">
+
+            <div class="champ">
+
+              <label for="naissanceEvenement">
+                Ta date de naissance
+              </label>
+
+              <input
+                type="date"
+                id="naissanceEvenement"
+                required
+              >
+
+            </div>
+
+
+            <div class="champ">
+
+              <label for="dateEvenement">
+                Date de l'événement
+              </label>
+
+              <input
+                type="date"
+                id="dateEvenement"
+                required
+              >
+
+            </div>
+
+
+            <div class="champ">
+
+              <label for="typeEvenement">
+                Nature de l'événement
+              </label>
+
+              <select
+                id="typeEvenement"
+                required
+              >
+
+                <option value="">
+                  Choisir un événement
+                </option>
+
+                <option value="amour">
+                  Mariage ou rencontre
+                </option>
+
+                <option value="travail">
+                  Travail ou projet professionnel
+                </option>
+
+                <option value="voyage">
+                  Voyage
+                </option>
+
+                <option value="demenagement">
+                  Déménagement
+                </option>
+
+                <option value="projet">
+                  Nouveau projet
+                </option>
+
+                <option value="personnel">
+                  Événement personnel
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="champ">
+
+              <label for="nomEvenement">
+                Nom de l'événement
+              </label>
+
+              <input
+                type="text"
+                id="nomEvenement"
+                placeholder="Facultatif"
+                maxlength="120"
+              >
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="bouton-principal"
+            >
+              ✧ Analyser cette date
+            </button>
+
+          </form>
+
+        </div>
+
+
+        <section
+          id="resultatEvenement"
+          class="panneau resultat"
+          hidden
+          aria-live="polite"
+        >
+
+          <h3>Étude de ton événement</h3>
+
+          <p id="titreResultatEvenement"></p>
+
+          <div class="grille-resultats">
+
+            <article class="carte-nombre">
+
+              <h4>Nombre de la date</h4>
+
+              <div
+                id="nombreDateEvenement"
+                class="valeur-nombre"
+              ></div>
+
+            </article>
+
+            <article class="carte-nombre">
+
+              <h4>Ton jour personnel</h4>
+
+              <div
+                id="nombreJourEvenement"
+                class="valeur-nombre"
+              ></div>
+
+            </article>
+
+          </div>
+
+
+          <section class="partie-lecture">
+
+            <h4>✧ Détails des calculs</h4>
+
+            <div
+              id="detailsCalculEvenement"
+              class="lecture-contenu"
+            ></div>
+
+          </section>
+
+
+          <section class="partie-lecture">
+
+            <h4>✧ Signification de cette date</h4>
+
+            <div
+              id="lectureEvenement"
+              class="lecture-contenu"
+            ></div>
+
+          </section>
+
+
+          <section class="partie-lecture">
+
+            <h4>✧ Une direction à explorer</h4>
+
+            <div
+              id="conseilEvenement"
+              class="lecture-contenu"
+            ></div>
+
+          </section>
+
+        </section>
+
+      </section>
+
+
+      <!-- ======================================
+           COMPATIBILITÉ
+      ======================================= -->
+
+      <section
+        id="analyseCompatibilite"
+        class="analyse-personnelle"
+        hidden
+      >
+
+        <div class="panneau">
+
+          <h3>✧ Compatibilité numérologique</h3>
+
+          <p class="description">
+            Compare deux chemins de vie pour
+            explorer leurs complémentarités
+            et leurs différences symboliques.
+          </p>
+
+          <form id="formulaireCompatibilite">
+
+            <div class="champ">
+
+              <label for="prenomPersonne1">
+                Prénom de la première personne
+              </label>
+
+              <input
+                type="text"
+                id="prenomPersonne1"
+                placeholder="Facultatif"
+                maxlength="100"
+              >
+
+            </div>
+
+
+            <div class="champ">
+
+              <label for="datePersonne1">
+                Sa date de naissance
+              </label>
+
+              <input
+                type="date"
+                id="datePersonne1"
+                required
+              >
+
+            </div>
+
+
+            <div class="separateur-personnes">
+              ✧ ET ✧
+            </div>
+
+
+            <div class="champ">
+
+              <label for="prenomPersonne2">
+                Prénom de la deuxième personne
+              </label>
+
+              <input
+                type="text"
+                id="prenomPersonne2"
+                placeholder="Facultatif"
+                maxlength="100"
+              >
+
+            </div>
+
+
+            <div class="champ">
+
+              <label for="datePersonne2">
+                Sa date de naissance
+              </label>
+
+              <input
+                type="date"
+                id="datePersonne2"
+                required
+              >
+
+            </div>
+
+
+            <div class="champ">
+
+              <label for="typeRelation">
+                Type de relation
+              </label>
+
+              <select id="typeRelation">
+
+                <option value="amoureuse">
+                  Relation amoureuse
+                </option>
+
+                <option value="amicale">
+                  Amitié
+                </option>
+
+                <option value="familiale">
+                  Relation familiale
+                </option>
+
+                <option value="professionnelle">
+                  Relation professionnelle
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="bouton-principal"
+            >
+              ✧ Étudier notre compatibilité
+            </button>
+
+          </form>
+
+        </div>
+
+
+        <section
+          id="resultatCompatibilite"
+          class="panneau resultat"
+          hidden
+          aria-live="polite"
+        >
+
+          <h3>Étude de compatibilité</h3>
+
+          <div class="grille-resultats">
+
+            <article class="carte-nombre">
+
+              <h4 id="nomResultatPersonne1">
+                Première personne
+              </h4>
+
+              <div
+                id="nombrePersonne1"
+                class="valeur-nombre"
+              ></div>
+
+            </article>
+
+
+            <article class="carte-nombre">
+
+              <h4 id="nomResultatPersonne2">
+                Deuxième personne
+              </h4>
+
+              <div
+                id="nombrePersonne2"
+                class="valeur-nombre"
+              ></div>
+
+            </article>
+
+          </div>
+
+
+          <section class="partie-lecture">
+
+            <h4>✧ Détails des calculs</h4>
+
+            <div
+              id="detailsCalculCompatibilite"
+              class="lecture-contenu"
+            ></div>
+
+          </section>
+
+
+          <section class="partie-lecture">
+
+            <h4>✧ Les complémentarités</h4>
+
+            <div
+              id="lectureComplementarites"
+              class="lecture-contenu"
+            ></div>
+
+          </section>
+
+
+          <section class="partie-lecture">
+
+            <h4>✧ Les différences et les défis</h4>
+
+            <div
+              id="lectureDifferences"
+              class="lecture-contenu"
+            ></div>
+
+          </section>
+
+
+          <section class="partie-lecture synthese">
+
+            <h4>✧ Synthèse de la relation</h4>
+
+            <div
+              id="syntheseCompatibilite"
+              class="lecture-contenu"
+            ></div>
+
+          </section>
+
+        </section>
+
+      </section>
+
+    </section>
+
+
+    <!-- =========================================
+         CONFIDENTIALITÉ ET INFORMATIONS
+    ========================================== -->
+
+    <section class="panneau informations">
+
+      <h3>✧ À propos de la numérologie</h3>
+
+      <p>
+        Les calculs utilisent les conventions
+        choisies de la numérologie pythagoricienne.
+        Les interprétations sont symboliques
+        et ne constituent pas des prédictions
+        certaines ni des analyses scientifiques
+        de la personnalité.
+      </p>
+
+      <p>
+        Les données saisies seront utilisées
+        pour effectuer les calculs dans
+        ton navigateur, sans transmission
+        prévue vers un serveur.
+      </p>
+
+    </section>
+
+
+    <!-- =========================================
+         PIED DE PAGE
+    ========================================== -->
+
+    <footer>
+
+      <p>VOYANCE PROMÉTHÉE</p>
+
+      <p>
+        La numérologie est une tradition
+        d'interprétation symbolique des nombres.
+        Elle ne détermine pas ton avenir
+        ni celui de tes relations.
+      </p>
+
+      <a href="index.html">
+        ← Retour à la voyance
+      </a>
+
+    </footer>
+
+  </main>
+
+</body>
+</html>
