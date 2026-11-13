@@ -1190,10 +1190,9 @@ function creerLectureGlobale() {
 
 
   const textePossibilites =
-    construirePossibilites(
-      infos,
-      motsCles
-    );
+  construirePossibilitesPersonnalisees(
+    infos
+  );
 
 
   const texteDirection =
