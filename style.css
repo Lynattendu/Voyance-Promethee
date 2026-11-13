@@ -1365,3 +1365,49 @@ h1 {
   }
 
 }
+
+/* PERSONNALISATION DU TIRAGE */
+
+.contexte-tirage {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 650px;
+  margin: 20px auto 30px;
+  padding: 22px;
+  background: rgba(30, 19, 57, 0.95);
+  border: 1px solid rgba(232, 201, 135, 0.35);
+  border-radius: 18px;
+}
+
+.contexte-tirage label {
+  color: #e8c987;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.contexte-tirage select,
+.contexte-tirage textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  color: #f5edff;
+  background: #120d29;
+  border: 1px solid #59447c;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 16px;
+}
+
+.contexte-tirage textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+.contexte-tirage select:focus,
+.contexte-tirage textarea:focus {
+  outline: 2px solid #e8c987;
+  outline-offset: 2px;
+}
+
