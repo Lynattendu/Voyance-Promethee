@@ -1914,6 +1914,8 @@ function rechercherNombre(valeur) {
 
   let message = "";
 
+    /* HEURES MIROIRS ET HEURES TRIPLES */
+
   if (categorieActive === "miroirs") {
 
     const texte = HEURES_MIROIRS[nombre];
@@ -1923,6 +1925,33 @@ function rechercherNombre(valeur) {
       titre = "Heure miroir";
 
       message = texte;
+
+    } else {
+
+      const heureTriple =
+        nombre.match(/^0([1-5]):\1\1$/);
+
+      if (heureTriple) {
+
+        const chiffre = heureTriple[1];
+
+        const codeAngelique =
+          chiffre.repeat(3);
+
+        const messages =
+          NOMBRES_ANGELIQUES[codeAngelique];
+
+        if (messages && messages.length > 0) {
+
+          titre = "Heure triple";
+
+          message = messages.join(
+            "\n\n✧ Message complémentaire\n\n"
+          );
+
+        }
+
+      }
 
     }
 
